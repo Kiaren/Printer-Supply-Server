@@ -1,0 +1,4025 @@
+Imports Microsoft.Office.Interop
+Imports System.Data.OleDb.OleDbConnection
+Imports System.Data.OleDb.OleDbCommand
+Imports WindowsApplication2.Form2
+Imports System.Data.OleDb
+Imports System.Net.Mail
+
+Public Class Form1
+    Public ConnString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\AUHEBWFS20\hebron\Groups\Information Technology\Databases\Russ's\Printer Supplies Inventory.accdb"
+
+    Public Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Button2.Enabled = False
+        Button4.Enabled = False
+        Button3.Enabled = False
+        Me.Cursor = Cursors.WaitCursor
+        'Select the table and read it.
+        Dim cmdfill As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim datareader As OleDbDataReader
+        Dim add As Object
+        Dim addx As Object
+        Dim sum As Object
+        add = 0
+        Globals.Cnn.Open()
+
+        datareader = cmdfill.ExecuteReader
+        'Select The table and read it.
+
+
+        'Add to Inventory
+
+        'Add to Inventory
+
+        If ListBox1.SelectedIndex = 0 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4100")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ4100 ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_lj_4100 = Globals.Supply
+            MySaveGame.global_hp_lj_4100 += 1
+        End If
+
+        If ListBox1.SelectedIndex = 1 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4015DN")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ4015DN ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_lj_4105dn = Globals.Supply
+            MySaveGame.global_hp_lj_4105dn += 1
+        End If
+
+        If ListBox1.SelectedIndex = 2 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4240N")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ4240N ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_lj_4240dn = Globals.Supply
+            MySaveGame.global_hp_lj_4240dn += 1
+        End If
+
+        If ListBox1.SelectedIndex = 3 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HPLJPRO400")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJPRO400 ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_lj_pro400 = Globals.Supply
+            MySaveGame.global_hp_lj_pro400 += 1
+        End If
+
+        If ListBox1.SelectedIndex = 4 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HPP1102W")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HPP1102W ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_p1102w = Globals.Supply
+            MySaveGame.global_hp_p1102w += 1
+        End If
+
+        If ListBox1.SelectedIndex = 5 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ600M601")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ600M601 ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_lj600_m601 = Globals.Supply
+            MySaveGame.global_hp_lj600_m601 += 1
+
+        End If
+
+        If ListBox1.SelectedIndex = 6 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ600M602")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ600M602 ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_lj600_m602 = Globals.Supply
+            MySaveGame.global_hp_lj600_m602 += 1
+        End If
+
+        If ListBox1.SelectedIndex = 7 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4000")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ4000 ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_lj4000 = Globals.Supply
+            MySaveGame.global_hp_lj4000 += 1
+        End If
+
+        If ListBox1.SelectedIndex = 8 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP564XLYELLOW")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP564XLYELLOW ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_564xl_yellow = Globals.Supply
+            MySaveGame.global_hp_564xl_yellow += 1
+        End If
+
+        If ListBox1.SelectedIndex = 9 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP564XLPHOTO")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP564XLPHOTO ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_564xl_photo = Globals.Supply
+            MySaveGame.global_hp_564xl_photo += 1
+        End If
+
+        If ListBox1.SelectedIndex = 10 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP564XLMAGENTA")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP564XLMAGENTA ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_564xl_magenta = Globals.Supply
+            MySaveGame.global_hp_564xl_magenta += 1
+        End If
+
+        If ListBox1.SelectedIndex = 11 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP564XLCYAN")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP564XLCYAN ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_564xl_cyan = Globals.Supply
+            MySaveGame.global_hp_564xl_cyan += 1
+        End If
+
+        If ListBox1.SelectedIndex = 12 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP564XLBLACK")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP564XLBLACK ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_564xl_black = Globals.Supply
+            MySaveGame.global_hp_564xl_black += 1
+        End If
+
+        If ListBox1.SelectedIndex = 13 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ600FUSERS")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ600FUSERS ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_fuzer_hp_lj600 = Globals.Supply
+            MySaveGame.global_fuzer_hp_lj600 += 1
+        End If
+
+        If ListBox1.SelectedIndex = 14 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HPLJP4015DNFUSER")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJP4015DNFUSER ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_fuzer_hp_ljp4015dn = Globals.Supply
+            MySaveGame.global_fuzer_hp_ljp4015dn += 1
+        End If
+
+        If ListBox1.SelectedIndex = 15 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4000FUZER")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ4000FUZER ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_fuzer_hp_lj4000 = Globals.Supply
+            MySaveGame.global_fuzer_hp_lj4000 += 1
+        End If
+
+        If ListBox1.SelectedIndex = 16 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4100FUSER")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ4100FUSER ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_fuzer_hp_lj4100 = Globals.Supply
+            MySaveGame.global_fuzer_hp_lj4100 += 1
+        End If
+
+        If ListBox1.SelectedIndex = 17 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HPLJPRO400FUSER")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJPRO400FUSER ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_fuzer_hp_ljpr400 = Globals.Supply
+            MySaveGame.global_fuzer_hp_ljpr400 += 1
+        End If
+
+        If ListBox1.SelectedIndex = 18 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("ZEBRA140Xill")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET ZEBRA140Xill ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_prthead_z140Xill = Globals.Supply
+            MySaveGame.global_prthead_z140Xill += 1
+        End If
+
+        If ListBox1.SelectedIndex = 19 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("ZEBRA140Xi4")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET ZEBRA140Xi4 ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_prthead_z140xi4 = Globals.Supply
+            MySaveGame.global_prthead_z140xi4 += 1
+        End If
+
+        If ListBox1.SelectedIndex = 20 Then
+            add = InputBox("How Much Do You Want To Add", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP970XLBLACK")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP970XLBLACK ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_hp_970xl_black = Globals.Supply
+            Globals.global_hp_970xl_black += 1
+        End If
+
+        If ListBox1.SelectedIndex = 21 Then
+            add = InputBox("How Much Do You Want To Add", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP970XLCYAN")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP970XLCYAN ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_hp_970xl_cyan = Globals.Supply
+            Globals.global_hp_970xl_cyan += 1
+        End If
+
+        If ListBox1.SelectedIndex = 22 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP970XLMAGENTA")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP970XLMAGENTA ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_hp_970xl_magenta = Globals.Supply
+            Globals.global_hp_970xl_magenta += 1
+        End If
+
+        If ListBox1.SelectedIndex = 23 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP970XLYELLOW")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE PRinter SET HP970XLYELLOW ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_hp_970xl_yellow = Globals.Supply
+            Globals.global_hp_970xl_yellow += 1
+        End If
+
+        If ListBox1.SelectedIndex = 24 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("CANONMX410BLACK")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET CANONMX410BLACK ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_canonmx410_black = Globals.Supply
+            Globals.global_canonmx410_black += 1
+        End If
+
+        If ListBox1.SelectedIndex = 25 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("CANONMX410COLOR")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET CANONMX410COLOR ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_canonmx410_color = Globals.Supply
+            Globals.global_canonmx410_color += 1
+        End If
+
+        If ListBox1.SelectedIndex = 26 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP932XLBLACK")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP932XLBLACK ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_canon_officejet_7612_black = Globals.Supply
+            Globals.global_canon_officejet_7612_black += 1
+        End If
+
+        If ListBox1.SelectedIndex = 27 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP932XLCYAN")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP932XLCYAN ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_canon_officejet_7612_cyan = Globals.Supply
+            Globals.global_canon_officejet_7612_cyan += 1
+        End If
+
+        If ListBox1.SelectedIndex = 28 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP932XLMAGENTA")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP932XLMAGENTA ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_canon_officejet_7612_magenta = Globals.Supply
+            Globals.global_canon_officejet_7612_magenta += 1
+        End If
+
+        If ListBox1.SelectedIndex = 29 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP932XLYELLOW")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP932XLYELLOW ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_canon_officejet_7612_yellow = Globals.Supply
+            Globals.global_canon_officejet_7612_yellow += 1
+        End If
+
+        If ListBox1.SelectedIndex = 30 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP933XLBLACK")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP933XLBLACK ='" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+        End If
+
+        If ListBox1.SelectedIndex = 31 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP933XLCYAN")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP933XLCYAN = '" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+        End If
+
+        If ListBox1.SelectedIndex = 32 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP933XLMAGENTA")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP933XLMAGENTA = '" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+        End If
+
+        If ListBox1.SelectedIndex = 33 Then
+            add = InputBox("How Much Do You Want To Add?", "Add", "")
+            If add = "" Then
+                Globals.Cnn.Close()
+                Me.Cursor = Cursors.Default
+                Exit Sub
+            End If
+            While datareader.Read
+                Globals.Supply = datareader("HP933XLYELLOW")
+            End While
+            addx = Globals.Supply
+            sum = add - -addx
+            Globals.Com.CommandText = "UPDATE Printer SET HP933XLYELLOW = '" & +sum & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+        End If
+        'Add To Inventory
+        Me.Cursor = Cursors.Default
+        Globals.Cnn.Close()
+        Button2.Enabled = True
+        Button4.Enabled = True
+        Button3.Enabled = True
+    End Sub
+
+    Public Sub Button3_Click(sender As Object, e As EventArgs)
+        'Debug Message to see if it's adding/subtracting
+        MessageBox.Show(MySaveGame.global_hp_lj_4100)
+    End Sub
+
+    Public Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Button1.Enabled = False
+        Button4.Enabled = False
+        Button3.Enabled = False
+        Me.Cursor = Cursors.WaitCursor
+        Me.Refresh()
+        Dim cmdfill As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill_used As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim datareader As OleDbDataReader
+        Dim datareader2 As OleDbDataReader
+        Globals.Cnn.Open()
+
+        datareader = cmdfill.ExecuteReader
+        datareader2 = cmdfill_used.ExecuteReader
+
+
+        'Subtract From Inventory
+        'hp lj 4100
+        If ListBox1.SelectedIndex = 0 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4100")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HPLJ4100")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ4100 ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4100 ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_lj_4100 = Globals.Supply
+            MySaveGame.global_hp_lj_4100 -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 1 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4015DN")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HPLJ4015DN")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ4015DN ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4015DN ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_lj_4105dn = Globals.Supply
+            MySaveGame.global_hp_lj_4105dn -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 2 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4240N")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HPLJ4240N")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ4240N ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4240N = '" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_lj_4240dn = Globals.Supply
+            MySaveGame.global_hp_lj_4240dn -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 3 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJPRO400")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HPLJPRO400")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJPRO400 ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJPRO400 = '" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_lj_pro400 = Globals.Supply
+            MySaveGame.global_hp_lj_pro400 -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 4 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPP1102W")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HPP1102W")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HPP1102W ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SEt HPP1102W = '" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_p1102w = Globals.Supply
+            MySaveGame.global_hp_p1102w -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 5 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ600M601")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HPLJ600M601")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ600M601 ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ600M601 = '" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_lj600_m601 = Globals.Supply
+            MySaveGame.global_hp_lj600_m601 -= 1
+
+        End If
+
+        If ListBox1.SelectedIndex = 6 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ600M602")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HPLJ600M602")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ600M602 ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ600M602 = '" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_lj600_m602 = Globals.Supply
+            MySaveGame.global_hp_lj600_m602 -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 7 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4000")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HPLJ4000")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ4000 ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SEt HPLJ4000 = '" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_lj4000 = Globals.Supply
+            MySaveGame.global_hp_lj4000 -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 8 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP564XLYELLOW")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP564XLY")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP564XLYELLOW ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP564XLY = '" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_564xl_yellow = Globals.Supply
+            MySaveGame.global_hp_564xl_yellow -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 9 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP564XLPHOTO")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP564XLPHOTO")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP564XLPHOTO ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP564XLPHOTO ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_564xl_photo = Globals.Supply
+            MySaveGame.global_hp_564xl_photo -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 10 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP564XLMAGENTA")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP564XLMAGENTA")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP564XLMAGENTA ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP564XLMAGENTA = '" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_564xl_magenta = Globals.Supply
+            MySaveGame.global_hp_564xl_magenta -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 11 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP564XLCYAN")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP564XLCYAN")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP564XLCYAN ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDAtE MonthlyUsed SET HP564XLCYAN ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_564xl_cyan = Globals.Supply
+            MySaveGame.global_hp_564xl_cyan -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 12 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP564XLBLACK")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP564XLBLACK")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP564XLBLACK ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDAtE MonthlyUsed SeT HP564XLBLACK ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_hp_564xl_black = Globals.Supply
+            MySaveGame.global_hp_564xl_black -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 13 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ600FUSERS")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HPLJ600FUSERS")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ600FUSERS ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SEt HPLJ600FUSERS ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_fuzer_hp_lj600 = Globals.Supply
+            MySaveGame.global_fuzer_hp_lj600 -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 14 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJP4015DNFUSER")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HPLJP4015DNFUSER")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJP4015DNFUSER ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJP4015DNFUSER ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_fuzer_hp_ljp4015dn = Globals.Supply
+            MySaveGame.global_fuzer_hp_ljp4015dn -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 15 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4000FUZER")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HPLJ4000FUZER")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ4000FUZER ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SEt HPLJ4000FUZER ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_fuzer_hp_lj4000 = Globals.Supply
+            MySaveGame.global_fuzer_hp_lj4000 -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 16 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4100FUSER")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HPLJ4100FUSER")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJ4100FUSER ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4100FUSER ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_fuzer_hp_lj4100 = Globals.Supply
+            MySaveGame.global_fuzer_hp_lj4100 -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 17 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJPRO400FUSER")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HPLJPRO400FUSER")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HPLJPRO400FUSER ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJPRO400FUSER ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_fuzer_hp_ljpr400 = Globals.Supply
+            MySaveGame.global_fuzer_hp_ljpr400 -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 18 Then
+            While datareader.Read
+                Globals.Supply = datareader("ZEBRA140Xill")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("ZEBRA140Xill")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET ZEBRA140Xill ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET ZEBRA140Xill ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_prthead_z140Xill = Globals.Supply
+            MySaveGame.global_prthead_z140Xill -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 19 Then
+            While datareader.Read
+                Globals.Supply = datareader("ZEBRA140Xi4")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("ZEBRA140Xi4")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET ZEBRA140Xi4 ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SeT ZEBRA140Xi4 ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            MySaveGame.global_prthead_z140xi4 = Globals.Supply
+            MySaveGame.global_prthead_z140xi4 -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 20 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP970XLBLACK")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP970XLBLACK")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP970XLBLACK ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP970XLBLACK ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_hp_970xl_black = Globals.Supply
+            Globals.global_hp_970xl_black -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 21 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP970XLCYAN")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP970XLCYAN")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP970XLCYAN ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP970XLCYAN ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_hp_970xl_cyan = Globals.Supply
+            Globals.global_hp_970xl_cyan -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 22 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP970XLMAGENTA")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP970XLMAGENTA")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP970XLMAGENTA ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP970XLMAGENTA ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_hp_970xl_magenta = Globals.Supply
+            Globals.global_hp_970xl_magenta -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 23 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP970XLYELLOW")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP970XLYELLOW")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP970XLYELLOW ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP970XLYELLOW ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_hp_970xl_yellow = Globals.Supply
+            Globals.global_hp_970xl_yellow -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 24 Then
+            While datareader.Read
+                Globals.Supply = datareader("CANONMX410BLACK")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("CANONMX410BLACK")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET CANONMX410BLACK ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET CANONMX410BLACK ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_canonmx410_black = Globals.Supply
+            Globals.global_canonmx410_black -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 25 Then
+            While datareader.Read
+                Globals.Supply = datareader("CANONMX410COLOR")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("CANONMX410COLOR")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET CANONMX410COLOR ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET CANONMX410COLOR ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_canonmx410_color = Globals.Supply
+            Globals.global_canonmx410_color -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 26 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP932XLBLACK")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP932XLBLACK")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP932XLBLACK ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP932XLBLACK ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_canon_officejet_7612_black = Globals.Supply
+            Globals.global_canon_officejet_7612_black -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 27 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP932XLCYAN")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP932XLCYAN")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP932XLCYAN ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP932XLCYAN ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_canon_officejet_7612_cyan = Globals.Supply
+            Globals.global_canon_officejet_7612_cyan -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 28 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP932XLMAGENTA")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP932XLMAGENTA")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP932XLMAGENTA ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP932XLMAGENTA ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_canon_officejet_7612_magenta = Globals.Supply
+            Globals.global_canon_officejet_7612_magenta -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 29 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP932XLYELLOW")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP932XLYELLOW")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP932XLYELLOW ='" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP932XLYELLOW ='" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_canon_officejet_7612_yellow = Globals.Supply
+            Globals.global_canon_officejet_7612_yellow -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 30 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP933XLBLACK")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP933XLBLACK")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP933XLBLACK = '" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP933XLBLACK = '" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_hp_933xl_black = Globals.Supply
+            Globals.global_hp_933xl_black -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 31 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP933XLCYAN")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP933XLCYAN")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP933XLCYAN = '" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MontlyUsed SET HP933XLCYAN = '" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_hp_933xl_cyan = Globals.Supply
+            Globals.global_hp_933xl_cyan -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 32 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP933XLMAGENTA")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP933XLMAGENTA")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP933XLMAGENTA = '" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP933XLMAGENTA = '" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_hp_933xl_magenta = Globals.Supply
+            Globals.global_hp_933xl_magenta -= 1
+        End If
+
+        If ListBox1.SelectedIndex = 33 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP933XLYELLOW")
+            End While
+            While datareader2.Read
+                Globals.Used = datareader2("HP933XLYELLOW")
+            End While
+            Globals.Com.CommandText = "UPDATE Printer SET HP933XLYELLOW = '" & Globals.Supply - 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP933XlYELLOW = '" & Globals.Used + 1 & "'"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Cnn.Close()
+            Globals.global_hp_933xl_yellow = Globals.Supply
+            Globals.global_hp_933xl_yellow -= 1
+        End If
+
+        'Subtract from inventory
+
+        'Test
+        'Send Email To James If QTY gets below required
+        If MySaveGame.global_hp_lj_4100 = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ 4100 HAS 0 TUNER LEFT" & vbCrLf & "PART # = C8061X"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ 4100 IS BELOW REQUIRED ON HAND "
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+
+        If MySaveGame.global_hp_lj_4105dn = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ 4105DN HAS 0 TUNER LEFT" & vbCrLf & "PART # = CC364X"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ 4105DN IS BELOW REQUIRED ON HAND "
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_hp_lj_4240dn = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ 4240DN HAS 0 TUNER LEFT" & vbCrLf & "PART # = Q5942X"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ 4240DN IS BELOW REQUIRED ON HAND "
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_hp_lj_pro400 = 3 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ PRO400 HAS 3 TUNER LEFT" & vbCrLf & "PART # = CF280X"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ PRO400 IS BELOW REQUIRED ON HAND "
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_hp_lj_pro400 = 1 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ PRO400 HAS 1 TUNER LEFT" & vbCrLf & "PART # = CF280X"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ PRO400 IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_hp_p1102w = 3 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ P1102W HAS 3 TUNER LEFT" & vbCrLf & "PART # = CE285A"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ P1102W IS BELOW REQUIRED ON HAND "
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_hp_p1102w = 1 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ P1102W HAS 1 TUNER LEFT" & vbCrLf & "PART # = CE285A"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ P1102W IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_hp_lj600_m601 = 9 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ600 (M601) HAS 9 TUNER LEFT" & vbCrLf & "PART # = CE390A"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ600 (M601) IS BELOW REQUIRED ON HAND "
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_hp_lj600_m601 = 5 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ600 (M601) HAS 5 TUNER LEFT" & vbCrLf & "PART # = CE390A"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ600 (M601) IS BELOW REQUIRED ON HAND "
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_hp_lj600_m601 = 1 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ600 (M601) HAS 1 TUNER LEFT" & vbCrLf & "PART # = CE390A"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ600 (M601) IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_hp_lj600_m602 = 5 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ600 (M602) HAS 5 TUNER LEFT" & vbCrLf & "PART # = CE390X"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ600 (M602) IS BELOW REQUIRED ON HAND "
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_hp_lj600_m602 = 1 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ600 (M602) HAS 9 TUNER LEFT" & vbCrLf & "PART # = CE390X"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ600 (M602) IS VERY"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_hp_lj4000 = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ 4000 HAS 0 TUNER LEFT" & vbCrLf & "PART # = C4127X"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ 4000 IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+
+        If MySaveGame.global_hp_564xl_yellow = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP 564XL (YELLOW) HAS 0 TUNER LEFT" & vbCrLf & "PART # = 564XL(YELLOW)"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP 564XL (YELLOW) IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_hp_564xl_photo = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP 564XL (PHOTO) HAS 0 TUNER LEFT" & vbCrLf & "PART # = 564XL(PHOTO)"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP 564XL (PHOTO) IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_hp_564xl_magenta = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP 564XL (MAGENTA) HAS 0 TUNER LEFT" & vbCrLf & "PART # = 564XL(MAGENTA)"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP 564XL (MAGENTA) IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_hp_564xl_cyan = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP 564XL (CYAN) HAS 0 TUNER LEFT" & vbCrLf & "PART # = 564XL(CYAN)"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP 564XL (CYAN) IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_hp_564xl_black = 1 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP 564XL (BLACK) HAS 0 TUNER LEFT" & vbCrLf & "PART # = 564XL(BLACK)"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP 564XL (BLACK) IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_fuzer_hp_lj600 = 3 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ 600 HAVE 3 FUSERS LEFT" & vbCrLf & "PART # = CF064A"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ 600 FUSERS IS BELOW REQUIRED ON HAND"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_fuzer_hp_lj600 = 1 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ 600 HAVE 1 FUSERS LEFT" & vbCrLf & "PART # = CF064A"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ 600 FUSERS IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_fuzer_hp_ljp4015dn = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ P4015DN HAVE 0 FUSERS LEFT" & vbCrLf & "PART # = CB388A"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ P4015DN FUSERS IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_fuzer_hp_lj4000 = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ 4000 HAVE 0 FUSERS LEFT" & vbCrLf & "PART # = C4118A"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ 4000 FUSERS IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_fuzer_hp_lj4100 = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ 4100 HAVE 0 FUSERS LEFT" & vbCrLf & "PART # = C8057A"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ 4100 FUSERS IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_fuzer_hp_ljpr400 = 1 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ PRO400 M401N HAVE 1 FUSERS LEFT" & vbCrLf & "PART # = M401-MNT"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ PRO400 M401N FUSERS IS BELOW REQUIRED ON HAND"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_fuzer_hp_ljpr400 = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP LJ PRO400 M401N HAVE 0 FUSERS LEFT" & vbCrLf & "PART # = M401-MNT"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP LJ PRO400 M401N FUSERS IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_prthead_z140Xill = 5 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "ZEBRA140Xill HAVE 5 PRINT HEADS LEFT" & vbCrLf & "PART # = G48000M"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "ZEBRA140Xill PRINT HEADS IS BELOW REQUIRED ON HAND"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_prthead_z140Xill = 1 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "ZEBRA140Xill HAVE 1 PRINT HEADS LEFT" & vbCrLf & "PART # = G48000M"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "ZEBRA140Xill PRINT HEADS IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_prthead_z140xi4 = 5 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "ZEBRA140Xi4 HAVE 5 PRINT HEADS LEFT" & vbCrLf & "PART # = P1004234"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "ZEBRA140Xi4 PRINT HEADS IS BELOW REQUIRED ON HAND"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If MySaveGame.global_prthead_z140xi4 = 1 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "ZEBRA140Xi4 HAVE 1 PRINT HEADS LEFT" & vbCrLf & "PART # = P1004234"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "ZEBRA140Xi4 PRINT HEADS IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If Globals.global_hp_970xl_black = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP 970XL (BLACK) HAVE 0 TONER LEFT" & vbCrLf & "PART # = CN625AM"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP 970XL (BLACK) TONER IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If Globals.global_hp_970xl_cyan = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP 971XL (CYAN) HAVE 0 TONER LEFT" & vbCrLf & "PART # = CN626AM"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP 971XL (CYAN) TONER IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If Globals.global_hp_970xl_magenta = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP 971XL (MAGENTA) HAVE 0 TONER LEFT" & vbCrLf & "PART # = CN627AM"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP 971XL (MAGENTA) TONER IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If Globals.global_hp_970xl_yellow = 1 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP 971XL (YELLOW) HAVE 0 TONER LEFT" & vbCrLf & "PART # = CN628AM"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP 971XL (YELLOW) TONER IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If Globals.global_canonmx410_black = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "CANON MX410 (BLACK) HAVE 0 TONER LEFT" & vbCrLf & "PART # = PG-210XL"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "CANON MX410 (BLACK) TONER IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If Globals.global_canonmx410_color = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "CANON MX410 (COLOR) HAVE 0 TONER LEFT" & vbCrLf & "PART # = CL-211XL"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "CANON MX410 (COLOR) TONER IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If Globals.global_canon_officejet_7612_black = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP OFFICEJET 7612 (BLACK) HAVE 0 TONER LEFT" & vbCrLf & "PART # = CN053AN"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP OFFICEJET 7612 (BLACK) TONER IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If Globals.global_canon_officejet_7612_cyan = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP OFFICEJET 7612 (CYAN) HAVE 0 TONER LEFT" & vbCrLf & "PART # = CN054AN"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP OFFICEJET 7612 (CYAN) TONER IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If Globals.global_canon_officejet_7612_magenta = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP OFFICEJET 7612 (MAGENTA) HAVE 0 TONER LEFT" & vbCrLf & "PART # = CN055AN"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP OFFICEJET 7612 (MAGENTA) TONER IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+
+        If Globals.global_canon_officejet_7612_yellow = 0 Then
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "HP OFFICEJET 7612 (YELLOW) HAVE 0 TONER LEFT" & vbCrLf & "PART # = CN056AN"
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "HP OFFICEJET 7612 (YELLOW) TONER IS VERY LOW"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+        End If
+        Me.Cursor = Cursors.Default
+        Globals.Cnn.Close()
+        Button1.Enabled = True
+        Button4.Enabled = True
+        Button3.Enabled = True
+    End Sub
+
+    Public Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'Printer_Supplies_InventoryDataSet.Printer' table. You can move, or remove it, as needed.
+        'Me.PrinterTableAdapter.Fill(Me.Printer_Supplies_InventoryDataSet.Printer)
+        Me.Left = (Screen.PrimaryScreen.WorkingArea.Width - Me.Width) / 2
+        Me.Top = (Screen.PrimaryScreen.WorkingArea.Height - Me.Height) / 2
+        Me.WindowState = FormWindowState.Minimized
+        Me.Hide()
+        Me.ShowInTaskbar = False
+        NotifyIcon1.Visible = True
+        Globals.Cnn.ConnectionString = ConnString
+        Globals.Com.Connection = Globals.Cnn
+        Globals.Cnn.Open()
+        Globals.Cnn.Close()
+        Dim Dayxx = Today.Day
+        If Dayxx = 15 Then
+            Timer1.Enabled = True
+        End If
+    End Sub
+
+    Public Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Button1.Enabled = False
+        Button2.Enabled = False
+        Button3.Enabled = False
+        Me.Cursor = Cursors.WaitCursor
+        Me.Refresh()
+        Dim cmdfill As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim datareader As OleDbDataReader
+        Globals.Cnn.Open()
+
+        datareader = cmdfill.ExecuteReader
+        'SHOW ON HAND
+        If ListBox1.SelectedIndex = 0 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4100")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 1 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4015DN")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 2 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4240N")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 3 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJPRO400")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 4 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPP1102W")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 5 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ600M601")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 6 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ600M602")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 7 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4000")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 8 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP564XLYELLOW")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 9 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP564XLPHOTO")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 10 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP564XLMAGENTA")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 11 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP564XLCYAN")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 12 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP564XLBLACK")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 13 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ600FUSERS")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 14 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJP4015DNFUSER")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 15 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4000FUZER")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 16 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJ4100FUSER")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 17 Then
+            While datareader.Read
+                Globals.Supply = datareader("HPLJPRO400FUSER")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 18 Then
+            While datareader.Read
+                Globals.Supply = datareader("ZEBRA140Xill").ToString
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 19 Then
+            While datareader.Read
+                Globals.Supply = datareader("ZEBRA140Xi4")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 20 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP970XLBLACK")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 21 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP970XLCYAN")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 22 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP970XLMAGENTA")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 23 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP970XLYELLOW")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 24 Then
+            While datareader.Read
+                Globals.Supply = datareader("CANONMX410BLACK")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 25 Then
+            While datareader.Read
+                Globals.Supply = datareader("CANONMX410COLOR")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 26 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP932XLBLACK")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 27 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP932XLCYAN")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 28 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP932XLMAGENTA")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 29 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP932XLYELLOW")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 30 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP933XLBLACK")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 31 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP933XLCYAN")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 32 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP933XLMAGENTA")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+
+        If ListBox1.SelectedIndex = 33 Then
+            While datareader.Read
+                Globals.Supply = datareader("HP933XLYELLOW")
+            End While
+            MessageBox.Show("On Hand = " & Globals.Supply)
+        End If
+        Globals.Cnn.Close()
+
+
+
+
+        Me.Cursor = Cursors.Default
+        Button1.Enabled = True
+        Button2.Enabled = True
+        Button3.Enabled = True
+    End Sub
+
+    Private Sub FillByToolStripButton_Click(sender As Object, e As EventArgs)
+        Try
+            Me.PrinterTableAdapter.FillBy(Me.Printer_Supplies_InventoryDataSet.Printer)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+
+
+    Public Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
+        Form3.Show()
+    End Sub
+
+    Public Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Dim Day = Today.Day
+        If Day = 1 And Globals.report = 0 Then
+            Timer1.Enabled = False
+            'Monthly reports
+            Dim cmdfill0 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill1 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill2 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill3 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill4 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill5 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill6 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill7 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill8 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill9 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill10 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill11 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill12 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill13 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill14 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill15 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill16 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill17 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill18 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill19 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill20 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill21 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill22 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill23 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill24 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill25 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill26 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill27 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill28 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill29 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill30 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill31 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill32 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+            Dim cmdfill33 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+
+
+            Dim datareader0 As OleDbDataReader
+            Dim datareader1 As OleDbDataReader
+            Dim datareader2 As OleDbDataReader
+            Dim datareader3 As OleDbDataReader
+            Dim datareader4 As OleDbDataReader
+            Dim datareader5 As OleDbDataReader
+            Dim datareader6 As OleDbDataReader
+            Dim datareader7 As OleDbDataReader
+            Dim datareader8 As OleDbDataReader
+            Dim datareader9 As OleDbDataReader
+            Dim datareader10 As OleDbDataReader
+            Dim datareader11 As OleDbDataReader
+            Dim datareader12 As OleDbDataReader
+            Dim datareader13 As OleDbDataReader
+            Dim datareader14 As OleDbDataReader
+            Dim datareader15 As OleDbDataReader
+            Dim datareader16 As OleDbDataReader
+            Dim datareader17 As OleDbDataReader
+            Dim datareader18 As OleDbDataReader
+            Dim datareader19 As OleDbDataReader
+            Dim datareader20 As OleDbDataReader
+            Dim datareader21 As OleDbDataReader
+            Dim datareader22 As OleDbDataReader
+            Dim datareader23 As OleDbDataReader
+            Dim datareader24 As OleDbDataReader
+            Dim datareader25 As OleDbDataReader
+            Dim datareader26 As OleDbDataReader
+            Dim datareader27 As OleDbDataReader
+            Dim datareader28 As OleDbDataReader
+            Dim datareader29 As OleDbDataReader
+            Dim datareader30 As OleDbDataReader
+            Dim datareader31 As OleDbDataReader
+            Dim datareader32 As OleDbDataReader
+            Dim datareader33 As OleDbDataReader
+            Dim dos As Integer = 0
+            Globals.Cnn.Open()
+
+
+            datareader0 = cmdfill0.ExecuteReader
+            datareader1 = cmdfill1.ExecuteReader
+            datareader2 = cmdfill2.ExecuteReader
+            datareader3 = cmdfill3.ExecuteReader
+            datareader4 = cmdfill4.ExecuteReader
+            datareader5 = cmdfill5.ExecuteReader
+            datareader6 = cmdfill6.ExecuteReader
+            datareader7 = cmdfill7.ExecuteReader
+            datareader8 = cmdfill8.ExecuteReader
+            datareader9 = cmdfill9.ExecuteReader
+            datareader10 = cmdfill10.ExecuteReader
+            datareader11 = cmdfill11.ExecuteReader
+            datareader12 = cmdfill12.ExecuteReader
+            datareader13 = cmdfill13.ExecuteReader
+            datareader14 = cmdfill14.ExecuteReader
+            datareader15 = cmdfill15.ExecuteReader
+            datareader16 = cmdfill16.ExecuteReader
+            datareader17 = cmdfill17.ExecuteReader
+            datareader18 = cmdfill18.ExecuteReader
+            datareader19 = cmdfill19.ExecuteReader
+            datareader20 = cmdfill20.ExecuteReader
+            datareader21 = cmdfill21.ExecuteReader
+            datareader22 = cmdfill22.ExecuteReader
+            datareader23 = cmdfill23.ExecuteReader
+            datareader24 = cmdfill24.ExecuteReader
+            datareader25 = cmdfill25.ExecuteReader
+            datareader26 = cmdfill26.ExecuteReader
+            datareader27 = cmdfill27.ExecuteReader
+            datareader28 = cmdfill28.ExecuteReader
+            datareader29 = cmdfill29.ExecuteReader
+            datareader30 = cmdfill30.ExecuteReader
+            datareader31 = cmdfill31.ExecuteReader
+            datareader32 = cmdfill32.ExecuteReader
+            datareader33 = cmdfill33.ExecuteReader
+
+
+
+
+            'Send Used Reported
+
+
+            While datareader0.Read
+                reports.report0 = datareader0("HPLJ4100")
+            End While
+            While datareader1.Read
+                reports.report1 = datareader1("HPLJ4015DN")
+            End While
+            While datareader2.Read
+                reports.report2 = datareader2("HPLJ4240N")
+            End While
+            While datareader3.Read
+                reports.report3 = datareader3("HPLJPRO400")
+            End While
+            While datareader4.Read
+                reports.report4 = datareader4("HPP1102W")
+            End While
+            While datareader5.Read
+                reports.report5 = datareader5("HPLJ600M601")
+            End While
+            While datareader6.Read
+                reports.report6 = datareader6("HPLJ600M602")
+            End While
+            While datareader7.Read
+                reports.report7 = datareader7("HPLJ4000")
+            End While
+            While datareader8.Read
+                reports.report8 = datareader8("HP564XLY")
+            End While
+            While datareader9.Read
+                reports.report9 = datareader9("HP564XLPHOTO")
+            End While
+            While datareader10.Read
+                reports.report10 = datareader10("HP564XLMAGENTA")
+            End While
+            While datareader11.Read
+                reports.report11 = datareader11("HP564XLCYAN")
+            End While
+            While datareader12.Read
+                reports.report12 = datareader12("HP564XLBLACK")
+            End While
+            While datareader13.Read
+                reports.report13 = datareader13("HPLJ600FUSERS")
+            End While
+            While datareader14.Read
+                reports.report14 = datareader14("HPLJP4015DNFUSER")
+            End While
+            While datareader15.Read
+                reports.report15 = datareader15("HPLJ4000")
+            End While
+            While datareader16.Read
+                reports.report16 = datareader16("HPLJ4100FUSER")
+            End While
+            While datareader17.Read
+                reports.report17 = datareader17("HPLJPRO400FUSER")
+            End While
+            While datareader18.Read
+                reports.report18 = datareader18("ZEBRA140Xill")
+            End While
+            While datareader19.Read
+                reports.report19 = datareader19("ZEBRA140Xi4")
+            End While
+            While datareader20.Read
+                reports.report20 = datareader20("HP970XLBLACK")
+            End While
+            While datareader21.Read
+                reports.report21 = datareader21("HP970XLCYAN")
+            End While
+            While datareader22.Read
+                reports.report22 = datareader22("HP970XLMAGENTA")
+            End While
+            While datareader23.Read
+                reports.report23 = datareader23("HP970XLYELLOW")
+            End While
+            While datareader24.Read
+                reports.report24 = datareader24("CANONMX410BLACK")
+            End While
+            While datareader25.Read
+                reports.report25 = datareader25("CANONMX410COLOR")
+            End While
+            While datareader26.Read
+                reports.report26 = datareader26("HP932XLBLACK")
+            End While
+            While datareader27.Read
+                reports.report27 = datareader27("HP932XLCYAN")
+            End While
+            While datareader28.Read
+                reports.report28 = datareader28("HP932XLMAGENTA")
+            End While
+            While datareader29.Read
+                reports.report29 = datareader29("HP932XLYELLOW")
+            End While
+            While datareader30.Read
+                reports.report30 = datareader30("HP933XLBLACK")
+            End While
+            While datareader31.Read
+                reports.report31 = datareader31("HP933XLCYAN")
+            End While
+            While datareader32.Read
+                reports.report32 = datareader32("HP933XLMAGENTA")
+            End While
+            While datareader33.Read
+                reports.report33 = datareader33("HP933XLYELLOW")
+            End While
+
+
+
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+
+            msgBody = "|Fram Inventory|" & vbCrLf & "HPLJ4100 = " & reports.report0 & vbCrLf & "HPLJ4015DN = " & reports.report1 & vbCrLf _
+                & "HPLJ4240N = " & reports.report2 & vbCrLf & "HPLJPRO400 = " & reports.report3 & vbCrLf & "HPP1102W = " & reports.report4 _
+                & vbCrLf & "HPLJ600M601 = " & reports.report5 & vbCrLf & "HPLJ600M602 = " & reports.report6 & vbCrLf & "HPLJ4000 = " & reports.report7 _
+                & vbCrLf & "HP564XLYELLOW = " & reports.report8 & vbCrLf & "HP564XLPHOTO = " & reports.report9 _
+                & vbCrLf & "HP564XLMAGENTA = " & reports.report10 & vbCrLf & "HP564XLCYAN = " & reports.report11 _
+                & vbCrLf & "HP564XLBLACK = " & reports.report12 & vbCrLf & "HPLJ600 = " & reports.report13 & vbCrLf _
+                & "HPLJP4015DNFUSER = " & reports.report14 & vbCrLf & "HPLJ4000FUSER = " & reports.report15 & vbCrLf _
+                & "HPLJ4100FUSER = " & reports.report16 & vbCrLf & "HPLJPRO400FUSER = " & reports.report17 _
+                & vbCrLf & "ZEBRA140Xill = " & reports.report18 & vbCrLf & "ZEBRA140Xi4 = " & reports.report19 _
+                & vbCrLf & vbCrLf & "|Ryder Inventory|" & vbCrLf & "HP970XLBLACK = " & reports.report20 & vbCrLf & "HP970XLCYAN = " & reports.report21 _
+                & vbCrLf & "HP970XLMAGENTA = " & reports.report22 & vbCrLf & "HP970XLYELLOW = " _
+                & reports.report23 & vbCrLf & "CANONMX410BLACK = " & reports.report24 & vbCrLf & "CANONMX410COLOR = " _
+                & reports.report25 & vbCrLf & "HP932XLBLACK = " & reports.report26 & "HP932XLCYAN = " & reports.report27 _
+                & vbCrLf & "HP932XLMAGENTA = " & reports.report28 & vbCrLf & "HP932XLYELLOW = " & reports.report29 & vbCrLf & "HP933XLBLACK = " & reports.report30 _
+                & vbCrLf & "HP933XLCYAN = " & reports.report31 & vbCrLf & "HP933XLMAGENTA = " & reports.report32 & vbCrLf & "HP933XLYELLOW = " & reports.report33
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "TONER/FUSER USED REPORT"
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+            Globals.report = 1
+
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4100 = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4015DN = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4240N = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJPRO400 = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPP1102W = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ600M601 = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ600M602 = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4000 = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP564XLY = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP564XLPHOTO = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP564XLMAGENTA = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP564XLCYAN = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP564XLBLACK = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ600FUSERS = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJP4015DNFUSER = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4000FUZER = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4100FUSER = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJPRO400FUSER = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET ZEBRA140Xill = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET ZEBRA140Xi4 = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP970XLBLACK = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP970XLCYAN = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP970XLMAGENTA = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP970XLYELLOW = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET CANONMX410BLACK = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET CANONMX410COLOR = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP932XLBLACK = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP932XLCYAN = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP932XLMAGENTA = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP932XLYELLOW = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUSed SET HP933XLBLACK = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP933XLCYAN = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP933XLMAGENTA = 0"
+            Globals.Com.ExecuteNonQuery()
+            Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP933XLYELLOW = 0"
+            Globals.Com.ExecuteNonQuery()
+
+            Globals.Cnn.Close()
+            Globals.report_done = 1
+        End If
+    End Sub
+
+    Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
+        'Reset Monthly reports
+        Dim Day = Today.Day
+        If Day = 2 Then
+            Globals.report = 0
+            Globals.report_done = 0
+            Timer1.Enabled = True
+            Timer4.Enabled = True
+        End If
+    End Sub
+
+    Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
+        Dim Day = Today.Day
+        If Globals.report_done = 1 And Day = 1 Then
+            Timer4.Enabled = False
+            Me.Cursor = Cursors.WaitCursor
+            Me.Refresh()
+            'Monthly reports Needs ordered
+            Dim cmdfill0 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill1 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill2 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill3 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill4 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill5 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill6 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill7 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill8 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill9 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill10 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill11 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill12 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill13 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill14 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill15 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill16 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill17 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill18 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill19 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill20 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill21 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill22 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill23 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill24 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill25 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill26 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill27 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill28 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim cmdfill29 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+            Dim datareader0 As OleDbDataReader
+            Dim datareader1 As OleDbDataReader
+            Dim datareader2 As OleDbDataReader
+            Dim datareader3 As OleDbDataReader
+            Dim datareader4 As OleDbDataReader
+            Dim datareader5 As OleDbDataReader
+            Dim datareader6 As OleDbDataReader
+            Dim datareader7 As OleDbDataReader
+            Dim datareader8 As OleDbDataReader
+            Dim datareader9 As OleDbDataReader
+            Dim datareader10 As OleDbDataReader
+            Dim datareader11 As OleDbDataReader
+            Dim datareader12 As OleDbDataReader
+            Dim datareader13 As OleDbDataReader
+            Dim datareader14 As OleDbDataReader
+            Dim datareader15 As OleDbDataReader
+            Dim datareader16 As OleDbDataReader
+            Dim datareader17 As OleDbDataReader
+            Dim datareader18 As OleDbDataReader
+            Dim datareader19 As OleDbDataReader
+            Dim datareader20 As OleDbDataReader
+            Dim datareader21 As OleDbDataReader
+            Dim datareader22 As OleDbDataReader
+            Dim datareader23 As OleDbDataReader
+            Dim datareader24 As OleDbDataReader
+            Dim datareader25 As OleDbDataReader
+            Dim datareader26 As OleDbDataReader
+            Dim datareader27 As OleDbDataReader
+            Dim datareader28 As OleDbDataReader
+            Dim datareader29 As OleDbDataReader
+            Dim dos As Integer = 0
+            Globals.Cnn.Open()
+
+
+            datareader0 = cmdfill0.ExecuteReader
+            datareader1 = cmdfill1.ExecuteReader
+            datareader2 = cmdfill2.ExecuteReader
+            datareader3 = cmdfill3.ExecuteReader
+            datareader4 = cmdfill4.ExecuteReader
+            datareader5 = cmdfill5.ExecuteReader
+            datareader6 = cmdfill6.ExecuteReader
+            datareader7 = cmdfill7.ExecuteReader
+            datareader8 = cmdfill8.ExecuteReader
+            datareader9 = cmdfill9.ExecuteReader
+            datareader10 = cmdfill10.ExecuteReader
+            datareader11 = cmdfill11.ExecuteReader
+            datareader12 = cmdfill12.ExecuteReader
+            datareader13 = cmdfill13.ExecuteReader
+            datareader14 = cmdfill14.ExecuteReader
+            datareader15 = cmdfill15.ExecuteReader
+            datareader16 = cmdfill16.ExecuteReader
+            datareader17 = cmdfill17.ExecuteReader
+            datareader18 = cmdfill18.ExecuteReader
+            datareader19 = cmdfill19.ExecuteReader
+            datareader20 = cmdfill20.ExecuteReader
+            datareader21 = cmdfill21.ExecuteReader
+            datareader22 = cmdfill22.ExecuteReader
+            datareader23 = cmdfill23.ExecuteReader
+            datareader24 = cmdfill24.ExecuteReader
+            datareader25 = cmdfill25.ExecuteReader
+            datareader26 = cmdfill26.ExecuteReader
+            datareader27 = cmdfill27.ExecuteReader
+            datareader28 = cmdfill28.ExecuteReader
+            datareader29 = cmdfill29.ExecuteReader
+
+
+
+
+            'Send Used Reported
+            While datareader0.Read
+                reports.report0 = datareader0("HPLJ4100")
+            End While
+            While datareader1.Read
+                reports.report1 = datareader1("HPLJ4015DN")
+            End While
+            While datareader2.Read
+                reports.report2 = datareader2("HPLJ4240N")
+            End While
+            While datareader3.Read
+                reports.report3 = datareader3("HPLJPRO400")
+            End While
+            While datareader4.Read
+                reports.report4 = datareader4("HPP1102W")
+            End While
+            While datareader5.Read
+                reports.report5 = datareader5("HPLJ600M601")
+            End While
+            While datareader6.Read
+                reports.report6 = datareader6("HPLJ600M602")
+            End While
+            While datareader7.Read
+                reports.report7 = datareader7("HPLJ4000")
+            End While
+            While datareader8.Read
+                reports.report8 = datareader8("HP564XLYELLOW")
+            End While
+            While datareader9.Read
+                reports.report9 = datareader9("HP564XLPHOTO")
+            End While
+            While datareader10.Read
+                reports.report10 = datareader10("HP564XLMAGENTA")
+            End While
+            While datareader11.Read
+                reports.report11 = datareader11("HP564XLCYAN")
+            End While
+            While datareader12.Read
+                reports.report12 = datareader12("HP564XLBLACK")
+            End While
+            While datareader13.Read
+                reports.report13 = datareader13("HPLJ600FUSERS")
+            End While
+            While datareader14.Read
+                reports.report14 = datareader14("HPLJP4015DNFUSER")
+            End While
+            While datareader15.Read
+                reports.report15 = datareader15("HPLJ4000")
+            End While
+            While datareader16.Read
+                reports.report16 = datareader16("HPLJ4100FUSER")
+            End While
+            While datareader17.Read
+                reports.report17 = datareader17("HPLJPRO400FUSER")
+            End While
+            While datareader18.Read
+                reports.report18 = datareader18("ZEBRA140Xill")
+            End While
+            While datareader19.Read
+                reports.report19 = datareader19("ZEBRA140Xi4")
+            End While
+            While datareader20.Read
+                reports.report20 = datareader20("HP970XLBLACK")
+            End While
+            While datareader21.Read
+                reports.report21 = datareader21("HP970XLCYAN")
+            End While
+            While datareader22.Read
+                reports.report22 = datareader22("HP970XLMAGENTA")
+            End While
+            While datareader23.Read
+                reports.report23 = datareader23("HP970XLYELLOW")
+            End While
+            While datareader24.Read
+                reports.report24 = datareader24("CANONMX410BLACK")
+            End While
+            While datareader25.Read
+                reports.report25 = datareader25("CANONMX410COLOR")
+            End While
+            While datareader26.Read
+                reports.report26 = datareader26("HP932XLBLACK")
+            End While
+            While datareader27.Read
+                reports.report27 = datareader27("HP932XLCYAN")
+            End While
+            While datareader28.Read
+                reports.report28 = datareader28("HP932XLMAGENTA")
+            End While
+            While datareader29.Read
+                reports.report29 = datareader29("HP932XLYELLOW")
+            End While
+            Globals.Cnn.Close()
+
+            Dim mailmsg As MailMessage
+            Dim smtpserver As SmtpClient
+            Dim smtpfrom As MailAddress
+            Dim smtpto As MailAddress
+            Dim msgBody As String
+            'get body
+            msgBody = "|Fram Inventory| <br>"
+            If reports.report0 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HPLJ 4100 TUNER PART# = C8061X <br>"
+            End If
+            If reports.report1 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HPLJ 4015DN TONER PART# = CC364X <br>"
+            End If
+            If reports.report1 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HPLJ 4015DN TONER PART# = CC364X <br>"
+            End If
+            If reports.report2 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HPLJ 4240N TONER PART# = Q5942X <br>"
+            End If
+            If reports.report3 = 3 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP LJ PRO400 TONER PART# = CF280X <br>"
+            End If
+            If reports.report3 = 2 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP LJ PRO400 TONER PART# = CF280X <br>"
+            End If
+            If reports.report3 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 3 HP LJ PRO400 TONER PART# = CF280X <br>"
+            End If
+            If reports.report3 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 4 HP LJ PRO400 TONER PART# = CF280X <br>"
+            End If
+            If reports.report4 = 3 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP P1102W TONER PART# = CE285A <br>"
+            End If
+            If reports.report4 = 2 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP P1102W TONER PART# = CE285A <br>"
+            End If
+            If reports.report4 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 3 HP P1102W TONER PART# = CE285A <br>"
+            End If
+            If reports.report4 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 4 HP P1102W TONER PART# = CE285A <br>"
+            End If
+            If reports.report5 = 9 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP LJ600 (M601) TONER PART# = CE390A <br>"
+            End If
+            If reports.report5 = 8 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP LJ600 (M601) TONER PART# = CE390A <br>"
+            End If
+            If reports.report5 = 7 Then
+                msgBody = msgBody & "PLEASE ORDER 3 HP LJ600 (M601) TONER PART# = CE390A <br>"
+            End If
+            If reports.report5 = 6 Then
+                msgBody = msgBody & "PLEASE ORDER 4 HP LJ600 (M601) TONER PART# = CE390A <br>"
+            End If
+            If reports.report5 = 5 Then
+                msgBody = msgBody & "PLEASE ORDER 5 HP LJ600 (M601) TONER PART# = CE390A <br>"
+            End If
+            If reports.report5 = 4 Then
+                msgBody = msgBody & "PLEASE ORDER 6 HP LJ600 (M601) TONER PART# = CE390A <br>"
+            End If
+            If reports.report5 = 3 Then
+                msgBody = msgBody & "PLEASE ORDER 7 HP LJ600 (M601) TONER PART# = CE390A <br>"
+            End If
+            If reports.report5 = 2 Then
+                msgBody = msgBody & "PLEASE ORDER 8 HP LJ600 (M601) TONER PART# = CE390A <br>"
+            End If
+            If reports.report5 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 9 HP LJ600 (M601) TONER PART# = CE390A <br>"
+            End If
+            If reports.report5 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 10 HP LJ600 (M601) TONER PART# = CE390A <br>"
+            End If
+            If reports.report6 = 5 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP LJ600 (M602) TONER PART# = CE390X <br>"
+            End If
+            If reports.report6 = 4 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP LJ600 (M602) TONER PART# = CE390X <br>"
+            End If
+            If reports.report6 = 3 Then
+                msgBody = msgBody & "PLEASE ORDER 3 HP LJ600 (M602) TONER PART# = CE390X <br>"
+            End If
+            If reports.report6 = 2 Then
+                msgBody = msgBody & "PLEASE ORDER 4 HP LJ600 (M602) TONER PART# = CE390X <br>"
+            End If
+            If reports.report6 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 5 HP LJ600 (M602) TONER PART# = CE390X <br>"
+            End If
+            If reports.report6 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 6 HP LJ600 (M602) TONER PART# = CE390X <br>"
+            End If
+            If reports.report7 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP LJ 400 TONER PART# = C4127X <br>"
+            End If
+            If reports.report7 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP LJ 400 TONER PART# = C4127X <br>"
+            End If
+            If reports.report8 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP 564XL (YELLOW) TONER PART# = 564XL-YELLOW <br>"
+            End If
+            If reports.report8 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP 564XL (YELLOW) TONER PART# = 564XL-YELLOW <br>"
+            End If
+            If reports.report9 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP 564XL (PHOTO) TONER PART = 564XL-PHOTO <br>"
+            End If
+            If reports.report9 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP 564XL (PHOTO) TONER PART = 564XL-PHOTO <br>"
+            End If
+            If reports.report10 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP 564XL (MAGENTA) TONER PART = 564XL-MAGENTA <br>"
+            End If
+            If reports.report10 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP 564XL (MAGENTA) TONER PART = 564XL-MAGENTA <br>"
+            End If
+            If reports.report11 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP 564XL (CYAN) TONER PART = 564XL-CYAN <br>"
+            End If
+            If reports.report11 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP 564XL (CYAN) TONER PART = 564XL-CYAN <br>"
+            End If
+            If reports.report12 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP 564XL (BLACK) TONER PART = 564XL-BLACK <br>"
+            End If
+            If reports.report13 = 3 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP LJ 600 FUSER PART# = CF064A <br>"
+            End If
+            If reports.report13 = 2 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP LJ 600 FUSER PART# = CF064A <br>"
+            End If
+            If reports.report13 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 3 HP LJ 600 FUSER PART# = CF064A <br>"
+            End If
+            If reports.report13 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 4 HP LJ 600 FUSER PART# = CF064A <br>"
+            End If
+            If reports.report14 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP LJ P4015DN FUSER PART# = CB388A <br>"
+            End If
+            If reports.report14 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP LJ P4015DN FUSER PART# = CB388A <br>"
+            End If
+            If reports.report15 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP LJ 4000 FUSER PART# = C4118A <br>"
+            End If
+            If reports.report16 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP LJ 4100 FUSER PART# = C8057A <br>"
+            End If
+            If reports.report17 = 2 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP LJ PRO400 M401N FUSER PART# = 401-MNT <br>"
+            End If
+            If reports.report17 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP LJ PRO400 M401N FUSER PART# = 401-MNT <br>"
+            End If
+            If reports.report17 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 3 HP LJ PRO400 M401N FUSER PART# = 401-MNT <br>"
+            End If
+            If reports.report18 = 5 Then
+                msgBody = msgBody & "PLEASE ORDER 1 ZEBRA 140XiLL PRINT HEADS PART# = G48000M <br>"
+            End If
+            If reports.report18 = 4 Then
+                msgBody = msgBody & "PLEASE ORDER 2 ZEBRA 140XiLL PRINT HEADS PART# = G48000M <br>"
+            End If
+            If reports.report18 = 3 Then
+                msgBody = msgBody & "PLEASE ORDER 3 ZEBRA 140XiLL PRINT HEADS PART# = G48000M <br>"
+            End If
+            If reports.report18 = 2 Then
+                msgBody = msgBody & "PLEASE ORDER 4 ZEBRA 140XiLL PRINT HEADS PART# = G48000M <br>"
+            End If
+            If reports.report18 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 5 ZEBRA 140XiLL PRINT HEADS PART# = G48000M <br>"
+            End If
+            If reports.report18 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 6 ZEBRA 140XiLL PRINT HEADS PART# = G48000M <br>"
+            End If
+            If reports.report19 = 5 Then
+                msgBody = msgBody & "PLEASE ORDER 1 ZEBRA 140Xi4 PRINT HEADS PART# = P1004234 <br>"
+            End If
+            If reports.report19 = 4 Then
+                msgBody = msgBody & "PLEASE ORDER 2 ZEBRA 140Xi4 PRINT HEADS PART# = P1004234 <br>"
+            End If
+            If reports.report19 = 3 Then
+                msgBody = msgBody & "PLEASE ORDER 3 ZEBRA 140Xi4 PRINT HEADS PART# = P1004234 <br>"
+            End If
+            If reports.report19 = 2 Then
+                msgBody = msgBody & "PLEASE ORDER 4 ZEBRA 140Xi4 PRINT HEADS PART# = P1004234 <br>"
+            End If
+            If reports.report19 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 5 ZEBRA 140Xi4 PRINT HEADS PART# = P1004234 <br>"
+            End If
+            If reports.report19 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 6 ZEBRA 140Xi4 PRINT HEADS PART# = P1004234 <br>"
+            End If
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("Russell.Toll@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "TONER/FUSER ORDER REPORT FRAM"
+            mailmsg.IsBodyHtml = True
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+            Me.Cursor = Cursors.Default
+
+
+
+            msgBody = "|Ryder Inventory| <br>"
+            If reports.report20 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP 970XL (BLACK) TONER PART# = CN625AM <br>"
+            End If
+            If reports.report20 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP 970XL (BLACK) TONER PART# = CN625AM <br>"
+            End If
+            If reports.report21 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP 970XL (CYAN) TONER PART# = CN626AM <br>"
+            End If
+            If reports.report21 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP 970XL (CYAN) TONER PART# = CN626AM <br>"
+            End If
+            If reports.report22 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 1 970XL (MAGENTA) TONER PART# = CN627AM <br>"
+            End If
+            If reports.report22 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 2 970XL (MAGENTA) TONER PART# = CN627AM <br>"
+            End If
+            If reports.report23 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 1 970XL (YELLOW) TONER PART# = CN628AM <br>"
+            End If
+            If reports.report23 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 2 970XL (YELLOW) TONER PART# = CN628AM <br>"
+            End If
+            If reports.report24 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 1 CANON MX410 BLACK TONER PART# = PG-210XL <br>"
+            End If
+            If reports.report24 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 2 CANON MX410 BLACK TONER PART# = PG-210XL <br>"
+            End If
+            If reports.report25 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 1 CANON MX410 COLOR TONER PART# = CL-211XL <br>"
+            End If
+            If reports.report25 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 2 CANON MX410 COLOR TONER PART# = CL-211XL <br>"
+            End If
+            If reports.report26 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP 932XL (BLACK) TONER PART# = CN053AN <br>"
+            End If
+            If reports.report26 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP 932XL (BLACK) TONER PART# = CN053AN <br>"
+            End If
+            If reports.report27 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP 932XL (CYAN) TONER PART# = CN054AN <br>"
+            End If
+            If reports.report27 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP 932XL (CYAN) TONER PART# = CN054AN <br>"
+            End If
+            If reports.report28 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP 932XL (MAGENTA) TONER PART# = CN055AN <br>"
+            End If
+            If reports.report28 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP 932XL (MAGENTA) TONER PART# = CN055AN <br>"
+            End If
+            If reports.report29 = 1 Then
+                msgBody = msgBody & "PLEASE ORDER 1 HP 932XL (YELLOW) TONER PART# = CN056AN <br>"
+            End If
+            If reports.report29 = 0 Then
+                msgBody = msgBody & "PLEASE ORDER 2 HP 932XL (YELLOW) TONER PART# = CN056AN <br>"
+            End If
+
+            smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+            smtpfrom = New MailAddress("no-reply@FramGrp.com")
+            smtpto = New MailAddress("Russell.Toll@FramGrp.com")
+
+            mailmsg = New MailMessage(smtpfrom, smtpto)
+            mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+            mailmsg.Subject = "TONER/FUSER ORDER REPORT RYDER"
+            mailmsg.IsBodyHtml = True
+            mailmsg.Body = msgBody
+            mailmsg.Priority = MailPriority.High
+            smtpserver.Send(mailmsg)
+            Me.Cursor = Cursors.Default
+
+        End If
+    End Sub
+
+    Private Sub NotifyIcon1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIcon1.MouseDoubleClick
+        Me.Visible = True
+        Me.Show()
+        Me.ShowInTaskbar = True
+        Me.WindowState = FormWindowState.Normal
+        NotifyIcon1.Visible = False
+    End Sub
+
+    Private Sub Form1_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        If Me.WindowState = FormWindowState.Minimized Then
+            Me.Hide()
+            Me.ShowInTaskbar = False
+            NotifyIcon1.Visible = True
+        End If
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        'Monthly reports
+        Dim cmdfill0 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill1 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill2 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill3 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill4 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill5 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill6 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill7 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill8 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill9 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill10 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill11 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill12 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill13 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill14 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill15 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill16 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill17 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill18 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill19 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill20 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill21 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill22 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill23 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill24 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill25 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill26 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill27 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill28 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill29 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill30 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill31 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill32 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+        Dim cmdfill33 As New OleDbCommand("SELECT * FROM MonthlyUsed", Globals.Cnn)
+
+
+        Dim datareader0 As OleDbDataReader
+        Dim datareader1 As OleDbDataReader
+        Dim datareader2 As OleDbDataReader
+        Dim datareader3 As OleDbDataReader
+        Dim datareader4 As OleDbDataReader
+        Dim datareader5 As OleDbDataReader
+        Dim datareader6 As OleDbDataReader
+        Dim datareader7 As OleDbDataReader
+        Dim datareader8 As OleDbDataReader
+        Dim datareader9 As OleDbDataReader
+        Dim datareader10 As OleDbDataReader
+        Dim datareader11 As OleDbDataReader
+        Dim datareader12 As OleDbDataReader
+        Dim datareader13 As OleDbDataReader
+        Dim datareader14 As OleDbDataReader
+        Dim datareader15 As OleDbDataReader
+        Dim datareader16 As OleDbDataReader
+        Dim datareader17 As OleDbDataReader
+        Dim datareader18 As OleDbDataReader
+        Dim datareader19 As OleDbDataReader
+        Dim datareader20 As OleDbDataReader
+        Dim datareader21 As OleDbDataReader
+        Dim datareader22 As OleDbDataReader
+        Dim datareader23 As OleDbDataReader
+        Dim datareader24 As OleDbDataReader
+        Dim datareader25 As OleDbDataReader
+        Dim datareader26 As OleDbDataReader
+        Dim datareader27 As OleDbDataReader
+        Dim datareader28 As OleDbDataReader
+        Dim datareader29 As OleDbDataReader
+        Dim datareader30 As OleDbDataReader
+        Dim datareader31 As OleDbDataReader
+        Dim datareader32 As OleDbDataReader
+        Dim datareader33 As OleDbDataReader
+        Dim dos As Integer = 0
+        Globals.Cnn.Open()
+
+
+        datareader0 = cmdfill0.ExecuteReader
+        datareader1 = cmdfill1.ExecuteReader
+        datareader2 = cmdfill2.ExecuteReader
+        datareader3 = cmdfill3.ExecuteReader
+        datareader4 = cmdfill4.ExecuteReader
+        datareader5 = cmdfill5.ExecuteReader
+        datareader6 = cmdfill6.ExecuteReader
+        datareader7 = cmdfill7.ExecuteReader
+        datareader8 = cmdfill8.ExecuteReader
+        datareader9 = cmdfill9.ExecuteReader
+        datareader10 = cmdfill10.ExecuteReader
+        datareader11 = cmdfill11.ExecuteReader
+        datareader12 = cmdfill12.ExecuteReader
+        datareader13 = cmdfill13.ExecuteReader
+        datareader14 = cmdfill14.ExecuteReader
+        datareader15 = cmdfill15.ExecuteReader
+        datareader16 = cmdfill16.ExecuteReader
+        datareader17 = cmdfill17.ExecuteReader
+        datareader18 = cmdfill18.ExecuteReader
+        datareader19 = cmdfill19.ExecuteReader
+        datareader20 = cmdfill20.ExecuteReader
+        datareader21 = cmdfill21.ExecuteReader
+        datareader22 = cmdfill22.ExecuteReader
+        datareader23 = cmdfill23.ExecuteReader
+        datareader24 = cmdfill24.ExecuteReader
+        datareader25 = cmdfill25.ExecuteReader
+        datareader26 = cmdfill26.ExecuteReader
+        datareader27 = cmdfill27.ExecuteReader
+        datareader28 = cmdfill28.ExecuteReader
+        datareader29 = cmdfill29.ExecuteReader
+        datareader30 = cmdfill30.ExecuteReader
+        datareader31 = cmdfill31.ExecuteReader
+        datareader32 = cmdfill32.ExecuteReader
+        datareader33 = cmdfill33.ExecuteReader
+
+
+
+
+        'Send Used Reported
+
+
+        While datareader0.Read
+            reports.report0 = datareader0("HPLJ4100")
+        End While
+        While datareader1.Read
+            reports.report1 = datareader1("HPLJ4015DN")
+        End While
+        While datareader2.Read
+            reports.report2 = datareader2("HPLJ4240N")
+        End While
+        While datareader3.Read
+            reports.report3 = datareader3("HPLJPRO400")
+        End While
+        While datareader4.Read
+            reports.report4 = datareader4("HPP1102W")
+        End While
+        While datareader5.Read
+            reports.report5 = datareader5("HPLJ600M601")
+        End While
+        While datareader6.Read
+            reports.report6 = datareader6("HPLJ600M602")
+        End While
+        While datareader7.Read
+            reports.report7 = datareader7("HPLJ4000")
+        End While
+        While datareader8.Read
+            reports.report8 = datareader8("HP564XLY")
+        End While
+        While datareader9.Read
+            reports.report9 = datareader9("HP564XLPHOTO")
+        End While
+        While datareader10.Read
+            reports.report10 = datareader10("HP564XLMAGENTA")
+        End While
+        While datareader11.Read
+            reports.report11 = datareader11("HP564XLCYAN")
+        End While
+        While datareader12.Read
+            reports.report12 = datareader12("HP564XLBLACK")
+        End While
+        While datareader13.Read
+            reports.report13 = datareader13("HPLJ600FUSERS")
+        End While
+        While datareader14.Read
+            reports.report14 = datareader14("HPLJP4015DNFUSER")
+        End While
+        While datareader15.Read
+            reports.report15 = datareader15("HPLJ4000")
+        End While
+        While datareader16.Read
+            reports.report16 = datareader16("HPLJ4100FUSER")
+        End While
+        While datareader17.Read
+            reports.report17 = datareader17("HPLJPRO400FUSER")
+        End While
+        While datareader18.Read
+            reports.report18 = datareader18("ZEBRA140Xill")
+        End While
+        While datareader19.Read
+            reports.report19 = datareader19("ZEBRA140Xi4")
+        End While
+        While datareader20.Read
+            reports.report20 = datareader20("HP970XLBLACK")
+        End While
+        While datareader21.Read
+            reports.report21 = datareader21("HP970XLCYAN")
+        End While
+        While datareader22.Read
+            reports.report22 = datareader22("HP970XLMAGENTA")
+        End While
+        While datareader23.Read
+            reports.report23 = datareader23("HP970XLYELLOW")
+        End While
+        While datareader24.Read
+            reports.report24 = datareader24("CANONMX410BLACK")
+        End While
+        While datareader25.Read
+            reports.report25 = datareader25("CANONMX410COLOR")
+        End While
+        While datareader26.Read
+            reports.report26 = datareader26("HP932XLBLACK")
+        End While
+        While datareader27.Read
+            reports.report27 = datareader27("HP932XLCYAN")
+        End While
+        While datareader28.Read
+            reports.report28 = datareader28("HP932XLMAGENTA")
+        End While
+        While datareader29.Read
+            reports.report29 = datareader29("HP932XLYELLOW")
+        End While
+        While datareader30.Read
+            reports.report30 = datareader30("HP933XLBLACK")
+        End While
+        While datareader31.Read
+            reports.report31 = datareader31("HP933XLCYAN")
+        End While
+        While datareader32.Read
+            reports.report32 = datareader32("HP933XLMAGENTA")
+        End While
+        While datareader33.Read
+            reports.report33 = datareader33("HP933XLYELLOW")
+        End While
+
+
+
+        Dim mailmsg As MailMessage
+        Dim smtpserver As SmtpClient
+        Dim smtpfrom As MailAddress
+        Dim smtpto As MailAddress
+        Dim msgBody As String
+
+        msgBody = "|Fram Inventory|" & vbCrLf & "HPLJ4100 = " & reports.report0 & vbCrLf & "HPLJ4015DN = " & reports.report1 & vbCrLf _
+            & "HPLJ4240N = " & reports.report2 & vbCrLf & "HPLJPRO400 = " & reports.report3 & vbCrLf & "HPP1102W = " & reports.report4 _
+            & vbCrLf & "HPLJ600M601 = " & reports.report5 & vbCrLf & "HPLJ600M602 = " & reports.report6 & vbCrLf & "HPLJ4000 = " & reports.report7 _
+            & vbCrLf & "HP564XLYELLOW = " & reports.report8 & vbCrLf & "HP564XLPHOTO = " & reports.report9 _
+            & vbCrLf & "HP564XLMAGENTA = " & reports.report10 & vbCrLf & "HP564XLCYAN = " & reports.report11 _
+            & vbCrLf & "HP564XLBLACK = " & reports.report12 & vbCrLf & "HPLJ600 = " & reports.report13 & vbCrLf _
+            & "HPLJP4015DNFUSER = " & reports.report14 & vbCrLf & "HPLJ4000FUSER = " & reports.report15 & vbCrLf _
+            & "HPLJ4100FUSER = " & reports.report16 & vbCrLf & "HPLJPRO400FUSER = " & reports.report17 _
+            & vbCrLf & "ZEBRA140Xill = " & reports.report18 & vbCrLf & "ZEBRA140Xi4 = " & reports.report19 _
+            & vbCrLf & vbCrLf & "|Ryder Inventory|" & vbCrLf & "HP970XLBLACK = " & reports.report20 & vbCrLf & "HP970XLCYAN = " & reports.report21 _
+            & vbCrLf & "HP970XLMAGENTA = " & reports.report22 & vbCrLf & "HP970XLYELLOW = " _
+            & reports.report23 & vbCrLf & "CANONMX410BLACK = " & reports.report24 & vbCrLf & "CANONMX410COLOR = " _
+            & reports.report25 & vbCrLf & "HP932XLBLACK = " & reports.report26 & "HP932XLCYAN = " & reports.report27 _
+            & vbCrLf & "HP932XLMAGENTA = " & reports.report28 & vbCrLf & "HP932XLYELLOW = " & reports.report29 & vbCrLf & "HP933XLBLACK = " & reports.report30 _
+            & vbCrLf & "HP933XLCYAN = " & reports.report31 & vbCrLf & "HP933XLMAGENTA = " & reports.report32 & vbCrLf & "HP933XLYELLOW = " & reports.report33
+
+        smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+        smtpfrom = New MailAddress("no-reply@FramGrp.com")
+        smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+        mailmsg = New MailMessage(smtpfrom, smtpto)
+        mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+        mailmsg.Subject = "TONER/FUSER USED REPORT"
+        mailmsg.Body = msgBody
+        mailmsg.Priority = MailPriority.High
+        smtpserver.Send(mailmsg)
+        Globals.report = 1
+
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4100 = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4015DN = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4240N = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJPRO400 = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPP1102W = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ600M601 = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ600M602 = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4000 = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP564XLY = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP564XLPHOTO = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP564XLMAGENTA = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP564XLCYAN = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP564XLBLACK = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ600FUSERS = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJP4015DNFUSER = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4000FUZER = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJ4100FUSER = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HPLJPRO400FUSER = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET ZEBRA140Xill = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET ZEBRA140Xi4 = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP970XLBLACK = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP970XLCYAN = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP970XLMAGENTA = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP970XLYELLOW = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET CANONMX410BLACK = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET CANONMX410COLOR = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP932XLBLACK = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP932XLCYAN = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP932XLMAGENTA = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP932XLYELLOW = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUSed SET HP933XLBLACK = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP933XLCYAN = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP933XLMAGENTA = 0"
+        Globals.Com.ExecuteNonQuery()
+        Globals.Com.CommandText = "UPDATE MonthlyUsed SET HP933XLYELLOW = 0"
+        Globals.Com.ExecuteNonQuery()
+
+        Globals.Cnn.Close()
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Me.Cursor = Cursors.WaitCursor
+        Me.Refresh()
+        'Monthly reports Needs ordered
+        Dim cmdfill0 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill1 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill2 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill3 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill4 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill5 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill6 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill7 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill8 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill9 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill10 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill11 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill12 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill13 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill14 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill15 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill16 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill17 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill18 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill19 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill20 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill21 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill22 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill23 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill24 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill25 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill26 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill27 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill28 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim cmdfill29 As New OleDbCommand("SELECT * FROM Printer", Globals.Cnn)
+        Dim datareader0 As OleDbDataReader
+        Dim datareader1 As OleDbDataReader
+        Dim datareader2 As OleDbDataReader
+        Dim datareader3 As OleDbDataReader
+        Dim datareader4 As OleDbDataReader
+        Dim datareader5 As OleDbDataReader
+        Dim datareader6 As OleDbDataReader
+        Dim datareader7 As OleDbDataReader
+        Dim datareader8 As OleDbDataReader
+        Dim datareader9 As OleDbDataReader
+        Dim datareader10 As OleDbDataReader
+        Dim datareader11 As OleDbDataReader
+        Dim datareader12 As OleDbDataReader
+        Dim datareader13 As OleDbDataReader
+        Dim datareader14 As OleDbDataReader
+        Dim datareader15 As OleDbDataReader
+        Dim datareader16 As OleDbDataReader
+        Dim datareader17 As OleDbDataReader
+        Dim datareader18 As OleDbDataReader
+        Dim datareader19 As OleDbDataReader
+        Dim datareader20 As OleDbDataReader
+        Dim datareader21 As OleDbDataReader
+        Dim datareader22 As OleDbDataReader
+        Dim datareader23 As OleDbDataReader
+        Dim datareader24 As OleDbDataReader
+        Dim datareader25 As OleDbDataReader
+        Dim datareader26 As OleDbDataReader
+        Dim datareader27 As OleDbDataReader
+        Dim datareader28 As OleDbDataReader
+        Dim datareader29 As OleDbDataReader
+        Dim dos As Integer = 0
+        Globals.Cnn.Open()
+
+
+        datareader0 = cmdfill0.ExecuteReader
+        datareader1 = cmdfill1.ExecuteReader
+        datareader2 = cmdfill2.ExecuteReader
+        datareader3 = cmdfill3.ExecuteReader
+        datareader4 = cmdfill4.ExecuteReader
+        datareader5 = cmdfill5.ExecuteReader
+        datareader6 = cmdfill6.ExecuteReader
+        datareader7 = cmdfill7.ExecuteReader
+        datareader8 = cmdfill8.ExecuteReader
+        datareader9 = cmdfill9.ExecuteReader
+        datareader10 = cmdfill10.ExecuteReader
+        datareader11 = cmdfill11.ExecuteReader
+        datareader12 = cmdfill12.ExecuteReader
+        datareader13 = cmdfill13.ExecuteReader
+        datareader14 = cmdfill14.ExecuteReader
+        datareader15 = cmdfill15.ExecuteReader
+        datareader16 = cmdfill16.ExecuteReader
+        datareader17 = cmdfill17.ExecuteReader
+        datareader18 = cmdfill18.ExecuteReader
+        datareader19 = cmdfill19.ExecuteReader
+        datareader20 = cmdfill20.ExecuteReader
+        datareader21 = cmdfill21.ExecuteReader
+        datareader22 = cmdfill22.ExecuteReader
+        datareader23 = cmdfill23.ExecuteReader
+        datareader24 = cmdfill24.ExecuteReader
+        datareader25 = cmdfill25.ExecuteReader
+        datareader26 = cmdfill26.ExecuteReader
+        datareader27 = cmdfill27.ExecuteReader
+        datareader28 = cmdfill28.ExecuteReader
+        datareader29 = cmdfill29.ExecuteReader
+
+
+
+
+        'Send Used Reported
+        While datareader0.Read
+            reports.report0 = datareader0("HPLJ4100")
+        End While
+        While datareader1.Read
+            reports.report1 = datareader1("HPLJ4015DN")
+        End While
+        While datareader2.Read
+            reports.report2 = datareader2("HPLJ4240N")
+        End While
+        While datareader3.Read
+            reports.report3 = datareader3("HPLJPRO400")
+        End While
+        While datareader4.Read
+            reports.report4 = datareader4("HPP1102W")
+        End While
+        While datareader5.Read
+            reports.report5 = datareader5("HPLJ600M601")
+        End While
+        While datareader6.Read
+            reports.report6 = datareader6("HPLJ600M602")
+        End While
+        While datareader7.Read
+            reports.report7 = datareader7("HPLJ4000")
+        End While
+        While datareader8.Read
+            reports.report8 = datareader8("HP564XLYELLOW")
+        End While
+        While datareader9.Read
+            reports.report9 = datareader9("HP564XLPHOTO")
+        End While
+        While datareader10.Read
+            reports.report10 = datareader10("HP564XLMAGENTA")
+        End While
+        While datareader11.Read
+            reports.report11 = datareader11("HP564XLCYAN")
+        End While
+        While datareader12.Read
+            reports.report12 = datareader12("HP564XLBLACK")
+        End While
+        While datareader13.Read
+            reports.report13 = datareader13("HPLJ600FUSERS")
+        End While
+        While datareader14.Read
+            reports.report14 = datareader14("HPLJP4015DNFUSER")
+        End While
+        While datareader15.Read
+            reports.report15 = datareader15("HPLJ4000")
+        End While
+        While datareader16.Read
+            reports.report16 = datareader16("HPLJ4100FUSER")
+        End While
+        While datareader17.Read
+            reports.report17 = datareader17("HPLJPRO400FUSER")
+        End While
+        While datareader18.Read
+            reports.report18 = datareader18("ZEBRA140Xill")
+        End While
+        While datareader19.Read
+            reports.report19 = datareader19("ZEBRA140Xi4")
+        End While
+        While datareader20.Read
+            reports.report20 = datareader20("HP970XLBLACK")
+        End While
+        While datareader21.Read
+            reports.report21 = datareader21("HP970XLCYAN")
+        End While
+        While datareader22.Read
+            reports.report22 = datareader22("HP970XLMAGENTA")
+        End While
+        While datareader23.Read
+            reports.report23 = datareader23("HP970XLYELLOW")
+        End While
+        While datareader24.Read
+            reports.report24 = datareader24("CANONMX410BLACK")
+        End While
+        While datareader25.Read
+            reports.report25 = datareader25("CANONMX410COLOR")
+        End While
+        While datareader26.Read
+            reports.report26 = datareader26("HP932XLBLACK")
+        End While
+        While datareader27.Read
+            reports.report27 = datareader27("HP932XLCYAN")
+        End While
+        While datareader28.Read
+            reports.report28 = datareader28("HP932XLMAGENTA")
+        End While
+        While datareader29.Read
+            reports.report29 = datareader29("HP932XLYELLOW")
+        End While
+        Globals.Cnn.Close()
+
+        Dim mailmsg As MailMessage
+        Dim smtpserver As SmtpClient
+        Dim smtpfrom As MailAddress
+        Dim smtpto As MailAddress
+        Dim msgBody As String
+        'get body
+        msgBody = "|Fram Inventory| <br>"
+        If reports.report0 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HPLJ 4100 TUNER PART# = C8061X <br>"
+        End If
+        If reports.report1 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HPLJ 4015DN TONER PART# = CC364X <br>"
+        End If
+        If reports.report1 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HPLJ 4015DN TONER PART# = CC364X <br>"
+        End If
+        If reports.report2 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HPLJ 4240N TONER PART# = Q5942X <br>"
+        End If
+        If reports.report3 = 3 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP LJ PRO400 TONER PART# = CF280X <br>"
+        End If
+        If reports.report3 = 2 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP LJ PRO400 TONER PART# = CF280X <br>"
+        End If
+        If reports.report3 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 3 HP LJ PRO400 TONER PART# = CF280X <br>"
+        End If
+        If reports.report3 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 4 HP LJ PRO400 TONER PART# = CF280X <br>"
+        End If
+        If reports.report4 = 3 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP P1102W TONER PART# = CE285A <br>"
+        End If
+        If reports.report4 = 2 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP P1102W TONER PART# = CE285A <br>"
+        End If
+        If reports.report4 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 3 HP P1102W TONER PART# = CE285A <br>"
+        End If
+        If reports.report4 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 4 HP P1102W TONER PART# = CE285A <br>"
+        End If
+        If reports.report5 = 9 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP LJ600 (M601) TONER PART# = CE390A <br>"
+        End If
+        If reports.report5 = 8 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP LJ600 (M601) TONER PART# = CE390A <br>"
+        End If
+        If reports.report5 = 7 Then
+            msgBody = msgBody & "PLEASE ORDER 3 HP LJ600 (M601) TONER PART# = CE390A <br>"
+        End If
+        If reports.report5 = 6 Then
+            msgBody = msgBody & "PLEASE ORDER 4 HP LJ600 (M601) TONER PART# = CE390A <br>"
+        End If
+        If reports.report5 = 5 Then
+            msgBody = msgBody & "PLEASE ORDER 5 HP LJ600 (M601) TONER PART# = CE390A <br>"
+        End If
+        If reports.report5 = 4 Then
+            msgBody = msgBody & "PLEASE ORDER 6 HP LJ600 (M601) TONER PART# = CE390A <br>"
+        End If
+        If reports.report5 = 3 Then
+            msgBody = msgBody & "PLEASE ORDER 7 HP LJ600 (M601) TONER PART# = CE390A <br>"
+        End If
+        If reports.report5 = 2 Then
+            msgBody = msgBody & "PLEASE ORDER 8 HP LJ600 (M601) TONER PART# = CE390A <br>"
+        End If
+        If reports.report5 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 9 HP LJ600 (M601) TONER PART# = CE390A <br>"
+        End If
+        If reports.report5 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 10 HP LJ600 (M601) TONER PART# = CE390A <br>"
+        End If
+        If reports.report6 = 5 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP LJ600 (M602) TONER PART# = CE390X <br>"
+        End If
+        If reports.report6 = 4 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP LJ600 (M602) TONER PART# = CE390X <br>"
+        End If
+        If reports.report6 = 3 Then
+            msgBody = msgBody & "PLEASE ORDER 3 HP LJ600 (M602) TONER PART# = CE390X <br>"
+        End If
+        If reports.report6 = 2 Then
+            msgBody = msgBody & "PLEASE ORDER 4 HP LJ600 (M602) TONER PART# = CE390X <br>"
+        End If
+        If reports.report6 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 5 HP LJ600 (M602) TONER PART# = CE390X <br>"
+        End If
+        If reports.report6 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 6 HP LJ600 (M602) TONER PART# = CE390X <br>"
+        End If
+        If reports.report7 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP LJ 400 TONER PART# = C4127X <br>"
+        End If
+        If reports.report7 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP LJ 400 TONER PART# = C4127X <br>"
+        End If
+        If reports.report8 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP 564XL (YELLOW) TONER PART# = 564XL-YELLOW <br>"
+        End If
+        If reports.report8 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP 564XL (YELLOW) TONER PART# = 564XL-YELLOW <br>"
+        End If
+        If reports.report9 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP 564XL (PHOTO) TONER PART = 564XL-PHOTO <br>"
+        End If
+        If reports.report9 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP 564XL (PHOTO) TONER PART = 564XL-PHOTO <br>"
+        End If
+        If reports.report10 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP 564XL (MAGENTA) TONER PART = 564XL-MAGENTA <br>"
+        End If
+        If reports.report10 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP 564XL (MAGENTA) TONER PART = 564XL-MAGENTA <br>"
+        End If
+        If reports.report11 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP 564XL (CYAN) TONER PART = 564XL-CYAN <br>"
+        End If
+        If reports.report11 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP 564XL (CYAN) TONER PART = 564XL-CYAN <br>"
+        End If
+        If reports.report12 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP 564XL (BLACK) TONER PART = 564XL-BLACK <br>"
+        End If
+        If reports.report13 = 3 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP LJ 600 FUSER PART# = CF064A <br>"
+        End If
+        If reports.report13 = 2 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP LJ 600 FUSER PART# = CF064A <br>"
+        End If
+        If reports.report13 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 3 HP LJ 600 FUSER PART# = CF064A <br>"
+        End If
+        If reports.report13 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 4 HP LJ 600 FUSER PART# = CF064A <br>"
+        End If
+        If reports.report14 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP LJ P4015DN FUSER PART# = CB388A <br>"
+        End If
+        If reports.report14 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP LJ P4015DN FUSER PART# = CB388A <br>"
+        End If
+        If reports.report15 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP LJ 4000 FUSER PART# = C4118A <br>"
+        End If
+        If reports.report16 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP LJ 4100 FUSER PART# = C8057A <br>"
+        End If
+        If reports.report17 = 2 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP LJ PRO400 M401N FUSER PART# = 401-MNT <br>"
+        End If
+        If reports.report17 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP LJ PRO400 M401N FUSER PART# = 401-MNT <br>"
+        End If
+        If reports.report17 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 3 HP LJ PRO400 M401N FUSER PART# = 401-MNT <br>"
+        End If
+        If reports.report18 = 5 Then
+            msgBody = msgBody & "PLEASE ORDER 1 ZEBRA 140XiLL PRINT HEADS PART# = G48000M <br>"
+        End If
+        If reports.report18 = 4 Then
+            msgBody = msgBody & "PLEASE ORDER 2 ZEBRA 140XiLL PRINT HEADS PART# = G48000M <br>"
+        End If
+        If reports.report18 = 3 Then
+            msgBody = msgBody & "PLEASE ORDER 3 ZEBRA 140XiLL PRINT HEADS PART# = G48000M <br>"
+        End If
+        If reports.report18 = 2 Then
+            msgBody = msgBody & "PLEASE ORDER 4 ZEBRA 140XiLL PRINT HEADS PART# = G48000M <br>"
+        End If
+        If reports.report18 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 5 ZEBRA 140XiLL PRINT HEADS PART# = G48000M <br>"
+        End If
+        If reports.report18 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 6 ZEBRA 140XiLL PRINT HEADS PART# = G48000M <br>"
+        End If
+        If reports.report19 = 5 Then
+            msgBody = msgBody & "PLEASE ORDER 1 ZEBRA 140Xi4 PRINT HEADS PART# = P1004234 <br>"
+        End If
+        If reports.report19 = 4 Then
+            msgBody = msgBody & "PLEASE ORDER 2 ZEBRA 140Xi4 PRINT HEADS PART# = P1004234 <br>"
+        End If
+        If reports.report19 = 3 Then
+            msgBody = msgBody & "PLEASE ORDER 3 ZEBRA 140Xi4 PRINT HEADS PART# = P1004234 <br>"
+        End If
+        If reports.report19 = 2 Then
+            msgBody = msgBody & "PLEASE ORDER 4 ZEBRA 140Xi4 PRINT HEADS PART# = P1004234 <br>"
+        End If
+        If reports.report19 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 5 ZEBRA 140Xi4 PRINT HEADS PART# = P1004234 <br>"
+        End If
+        If reports.report19 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 6 ZEBRA 140Xi4 PRINT HEADS PART# = P1004234 <br>"
+        End If
+
+        smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+        smtpfrom = New MailAddress("no-reply@FramGrp.com")
+        smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+        mailmsg = New MailMessage(smtpfrom, smtpto)
+        mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+        mailmsg.Subject = "TONER/FUSER ORDER REPORT FRAM"
+        mailmsg.IsBodyHtml = True
+        mailmsg.Body = msgBody
+        mailmsg.Priority = MailPriority.High
+        smtpserver.Send(mailmsg)
+        Me.Cursor = Cursors.Default
+
+
+
+        msgBody = "|Ryder Inventory| <br>"
+        If reports.report20 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP 970XL (BLACK) TONER PART# = CN625AM <br>"
+        End If
+        If reports.report20 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP 970XL (BLACK) TONER PART# = CN625AM <br>"
+        End If
+        If reports.report21 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP 970XL (CYAN) TONER PART# = CN626AM <br>"
+        End If
+        If reports.report21 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP 970XL (CYAN) TONER PART# = CN626AM <br>"
+        End If
+        If reports.report22 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 1 970XL (MAGENTA) TONER PART# = CN627AM <br>"
+        End If
+        If reports.report22 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 2 970XL (MAGENTA) TONER PART# = CN627AM <br>"
+        End If
+        If reports.report23 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 1 970XL (YELLOW) TONER PART# = CN628AM <br>"
+        End If
+        If reports.report23 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 2 970XL (YELLOW) TONER PART# = CN628AM <br>"
+        End If
+        If reports.report24 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 1 CANON MX410 BLACK TONER PART# = PG-210XL <br>"
+        End If
+        If reports.report24 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 2 CANON MX410 BLACK TONER PART# = PG-210XL <br>"
+        End If
+        If reports.report25 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 1 CANON MX410 COLOR TONER PART# = CL-211XL <br>"
+        End If
+        If reports.report25 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 2 CANON MX410 COLOR TONER PART# = CL-211XL <br>"
+        End If
+        If reports.report26 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP 932XL (BLACK) TONER PART# = CN053AN <br>"
+        End If
+        If reports.report26 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP 932XL (BLACK) TONER PART# = CN053AN <br>"
+        End If
+        If reports.report27 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP 932XL (CYAN) TONER PART# = CN054AN <br>"
+        End If
+        If reports.report27 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP 932XL (CYAN) TONER PART# = CN054AN <br>"
+        End If
+        If reports.report28 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP 932XL (MAGENTA) TONER PART# = CN055AN <br>"
+        End If
+        If reports.report28 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP 932XL (MAGENTA) TONER PART# = CN055AN <br>"
+        End If
+        If reports.report29 = 1 Then
+            msgBody = msgBody & "PLEASE ORDER 1 HP 932XL (YELLOW) TONER PART# = CN056AN <br>"
+        End If
+        If reports.report29 = 0 Then
+            msgBody = msgBody & "PLEASE ORDER 2 HP 932XL (YELLOW) TONER PART# = CN056AN <br>"
+        End If
+
+        smtpserver = New SmtpClient("mx2.rankgrp.com", 25)
+        smtpfrom = New MailAddress("no-reply@FramGrp.com")
+        smtpto = New MailAddress("James.Bartley@FramGrp.com")
+
+        mailmsg = New MailMessage(smtpfrom, smtpto)
+        mailmsg.From = New MailAddress("no-reply@FramGrp.com")
+        mailmsg.Subject = "TONER/FUSER ORDER REPORT RYDER"
+        mailmsg.IsBodyHtml = True
+        mailmsg.Body = msgBody
+        mailmsg.Priority = MailPriority.High
+        smtpserver.Send(mailmsg)
+        Me.Cursor = Cursors.Default
+
+    End Sub
+End Class
