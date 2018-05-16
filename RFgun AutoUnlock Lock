@@ -1,0 +1,315 @@
+Imports System.Net.Mail
+Imports System.IO
+Imports Microsoft.Office.Interop
+Imports System
+Imports System.Xml
+Imports System.Data.SqlClient
+Imports System.Data.OleDb.OleDbConnection
+Imports System.Data.OleDb.OleDbCommand
+Imports System.Data.OleDb
+
+
+Public Class Form1
+    'Globals Var for ODBC connection
+    'Globals Vars for RF UserName / Rf Number
+    Public Class Globals
+        Public Shared Cnn As New OleDb.OleDbConnection
+        Public Shared Com As New OleDb.OleDbCommand
+        Public Shared RFName As String
+        Public Shared RFNum As Integer
+    End Class
+
+    'Connection String for ODBC database
+    Public ConnString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\AUHEBWFS20\hebron\Groups\Information Technology\Databases\Russ's\rfautolock.accdb"
+
+
+
+
+    Public Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Connection String for ODBC
+        Globals.Cnn.ConnectionString = ConnString
+        Globals.Com.Connection = Globals.Cnn
+        Globals.Cnn.Open()
+        Globals.Cnn.Close()
+    End Sub
+
+    Private Sub TimerResetUnlock_Tick(sender As Object, e As EventArgs) Handles TimerResetUnlock.Tick
+        TimerResetUnlock.Enabled = False
+        Me.Cursor = Cursors.WaitCursor
+        'Creating TxT file and reading Email
+        Dim app As Microsoft.Office.Interop.Outlook.Application = Nothing
+        Dim ns As Microsoft.Office.Interop.Outlook._NameSpace = Nothing
+        Dim inboxFolder As Microsoft.Office.Interop.Outlook.MAPIFolder = Nothing
+        Dim subFolder As Microsoft.Office.Interop.Outlook.MAPIFolder = Nothing
+        Dim destinationDirectory As String = "C:\Users\rpt7954\Documents"
+
+        If Not Directory.Exists(destinationDirectory) Then
+            Directory.CreateDirectory(destinationDirectory)
+        End If
+
+        app = New Microsoft.Office.Interop.Outlook.Application()
+        ns = app.GetNamespace("MAPI")
+        ns.Logon(Nothing, Nothing, False, False)
+        inboxFolder = ns.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders.olFolderInbox)
+        subFolder = inboxFolder.Folders("RFAutoUnLock")
+
+
+        For i = 0 To subFolder.Items.Count
+            For Each collectionItem As Object In subFolder.Items
+                Dim newEmail As Outlook.MailItem = TryCast(collectionItem, Outlook.MailItem)
+                'Reading Email
+                Dim RfNum2 As Integer
+                'Creating TxT file
+                Dim intLineNumber1 As Integer
+                Dim strname = newEmail.Body
+                Dim stream_writer As IO.StreamWriter
+                stream_writer = New IO.StreamWriter("C:\Users\rpt7954\Documents\" & "WHATEVER2" & ".txt")
+                stream_writer.Write(strname)
+                stream_writer.Close()
+                newEmail.Delete()
+                intLineNumber1 = 8
+
+                Dim myLine1 = File.ReadAllLines("C:\Users\rpt7954\Documents\WHATEVER2.TXT").ElementAt(intLineNumber1).ToString
+                RfNum2 = myLine1.Substring(11, 3)
+
+
+
+                SQLconnection()
+                con2.ConnectionString = ConnectionStringRF
+
+
+
+                If con2.State = ConnectionState.Closed Or con2.State = ConnectionState.Broken Then con2.Open()
+                'Update RF Equipment Table
+                cmd3.Connection = con2
+                cmd3.CommandText = "UPDATE dbo.tblRFequipment SET Lock='N' WHERE RFNum = '" & RfNum2 & "'"
+                cmd3.ExecuteNonQuery()
+                cmd3.Dispose()
+                con2.Close()
+
+
+            Next collectionItem
+        Next i
+        Me.Cursor = Cursors.Default
+        TimerResetUnlock.Enabled = True
+    End Sub
+
+    Private Sub TimerResetLock_Tick(sender As Object, e As EventArgs) Handles TimerResetLock.Tick
+ 
+    End Sub
+
+    Private Sub MassLock_Tick(sender As Object, e As EventArgs) Handles MassLock.Tick
+        Dim Hours = Now.Hour
+
+        If Hours = 3 Then
+            MassLock.Enabled = False
+            SQLconnection()
+            con2.ConnectionString = ConnectionStringRF
+
+
+
+            If con2.State = ConnectionState.Closed Or con2.State = ConnectionState.Broken Then con2.Open()
+            'Lock all RF guns
+            cmd3.Connection = con2
+            cmd3.CommandText = "UPDATE dbo.tblRFequipment SET Lock='Y'"
+            cmd3.ExecuteNonQuery()
+            cmd3.Dispose()
+            con2.Close()
+        End If
+    End Sub
+
+
+    Private Sub MassLockReset_Tick(sender As Object, e As EventArgs) Handles MassLockReset.Tick
+        Dim hours = Now.Hour
+
+        If hours = 4 Then
+            MassLock.Enabled = True
+        End If
+    End Sub
+
+    Private Sub LockOverDue_Tick(sender As Object, e As EventArgs) Handles LockOverDue.Tick
+        LockOverDue.Enabled = False
+        Me.Cursor = Cursors.WaitCursor
+        'Creating TxT file and reading Email
+        Dim app As Microsoft.Office.Interop.Outlook.Application = Nothing
+        Dim ns As Microsoft.Office.Interop.Outlook._NameSpace = Nothing
+        Dim inboxFolder As Microsoft.Office.Interop.Outlook.MAPIFolder = Nothing
+        Dim subFolder As Microsoft.Office.Interop.Outlook.MAPIFolder = Nothing
+        Dim destinationDirectory As String = "C:\Users\rpt7954\Documents"
+        Dim plus As Integer
+        plus = 0
+        'Creating TxT File and reading Email
+        Globals.Cnn.Open()
+        'Creating ODBC connection
+        Dim cmdfill As New OleDbCommand("SELECT * FROM rfautolock", Globals.Cnn)
+        Dim datareader As OleDbDataReader
+        datareader = cmdfill.ExecuteReader
+        datareader.Close()
+
+        'Creating ODBC connection
+        Globals.Cnn.Close()
+
+        'Reading Email
+        If Not Directory.Exists(destinationDirectory) Then
+            Directory.CreateDirectory(destinationDirectory)
+        End If
+
+        app = New Microsoft.Office.Interop.Outlook.Application()
+        ns = app.GetNamespace("MAPI")
+        ns.Logon(Nothing, Nothing, False, False)
+        inboxFolder = ns.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders.olFolderInbox)
+        subFolder = inboxFolder.Folders("RFAutoLock")
+
+        For Each collectionItem As Object In subFolder.Items
+            Dim newEmail As Outlook.MailItem = TryCast(collectionItem, Outlook.MailItem)
+            If newEmail Is Nothing Then
+                Continue For
+            End If
+            'Reading Email
+
+            'Creating TxT file
+            Dim intLineNumber1 As Integer
+            Dim intLineNumber2 As Integer
+            Dim strname = newEmail.Body
+            Dim stream_writer As IO.StreamWriter
+            stream_writer = New IO.StreamWriter("C:\Users\rpt7954\Documents\" & "WHATEVER4" & ".txt")
+            stream_writer.Write(strname)
+            stream_writer.Close()
+            newEmail.Delete()
+            'Creating TxT file
+
+            'Reading TxT file to find RF number/Username
+            intLineNumber1 = 8
+            intLineNumber2 = 8
+
+
+            Dim myLine1 = File.ReadAllLines("C:\Users\rpt7954\Documents\WHATEVER4.TXT").ElementAt(intLineNumber1).ToString
+            Dim myLine2 = File.ReadAllLines("C:\Users\rpt7954\Documents\WHATEVER4.TXT").ElementAt(intLineNumber2).ToString
+            Globals.RFNum = myLine1.Substring(0, 3)
+            Globals.RFName = myLine2.Substring(20, 12)
+            'Reading Txt file to find RF number/Username
+
+            Globals.Cnn.Open()
+            'Check to see if employ exist
+            Dim fdwSQL As String
+            Dim sql As String = "SELECT Count(*) FROM rfautolock WHERE EmployeeName = '" & Globals.RFName & "'"
+            Dim cmd2 As New OleDbCommand(sql, Globals.Cnn)
+            cmd2.Connection = Globals.Cnn
+            fdwSQL = cmd2.ExecuteScalar
+            cmd2.Dispose()
+
+            'Check to see if emply exist
+
+            'Input Point for the name into ODBC
+            If fdwSQL = 0 Then
+                cmd2.Connection = Globals.Cnn
+
+
+                'Insert record into tblEmployees
+                cmd2.CommandText = "INSERT INTO rfautolock(EmployeeName, LOCKS) VALUES " _
+                & "('" & Globals.RFName & "', '" & "1" & "')"
+                cmd2.ExecuteNonQuery()
+            Else
+                'cmd2.comnection = Globals.Cnn
+                'cmd2.CommandText = "UPDATE rfautolock SET LOCKS='" & plus + 1 & "' WHERE EmployeeName ='" & Variable & "'"
+                'cmd2.ExecuteNonQuery()
+                'cmd2.Dispose()
+            End If
+            Globals.Cnn.Close()
+            'SQL connection to lock RFgun and input Data and time.
+
+            SQLconnection()
+            con2.ConnectionString = ConnectionStringRF
+
+            If con2.State = ConnectionState.Closed Or con2.State = ConnectionState.Broken Then con2.Open()
+            'Insert History Record
+            cmd3.Connection = con2
+            cmd3.CommandText = "INSERT INTO tblRFLockHistory(LDate,EmployeeName,RFNum,Status,LTime,Notes) VALUES ('" & Now.Date & "','" & "AUTO LOCK" & "','" & Globals.RFNum & "','" & "Lock" & "','" & DateTime.Now.ToShortTimeString() & "','" & "OVERDUE " & " ')"
+            cmd3.ExecuteNonQuery()
+            cmd3.Dispose()
+
+            'Update RF Equipment Table
+            cmd3.Connection = con2
+            cmd3.CommandText = "UPDATE dbo.tblRFequipment SET Lock='Y' WHERE RFNum = '" & Globals.RFNum & "'"
+            cmd3.ExecuteNonQuery()
+            cmd3.Dispose()
+
+            con2.Close()
+
+
+
+            intLineNumber1 = Nothing
+        Next collectionItem
+        Me.Cursor = Cursors.Default
+        LockOverDue.Enabled = True
+    End Sub
+
+
+    Private Sub LockCheckin_Tick(sender As Object, e As EventArgs) Handles LockCheckin.Tick
+        LockCheckin.Enabled = False
+        Me.Cursor = Cursors.WaitCursor
+        'Creating TxT file and reading Email
+        Dim app As Microsoft.Office.Interop.Outlook.Application = Nothing
+        Dim ns As Microsoft.Office.Interop.Outlook._NameSpace = Nothing
+        Dim inboxFolder As Microsoft.Office.Interop.Outlook.MAPIFolder = Nothing
+        Dim subFolder As Microsoft.Office.Interop.Outlook.MAPIFolder = Nothing
+        Dim destinationDirectory As String = "C:\Users\rpt7954\Documents"
+
+        If Not Directory.Exists(destinationDirectory) Then
+            Directory.CreateDirectory(destinationDirectory)
+        End If
+
+        app = New Microsoft.Office.Interop.Outlook.Application()
+        ns = app.GetNamespace("MAPI")
+        ns.Logon(Nothing, Nothing, False, False)
+        inboxFolder = ns.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders.olFolderInbox)
+        subFolder = inboxFolder.Folders("RFAutoLockCheckIn")
+
+
+        For i = 0 To subFolder.Items.Count
+            For Each collectionItem As Object In subFolder.Items
+                Dim newEmail As Outlook.MailItem = TryCast(collectionItem, Outlook.MailItem)
+                'Reading Email
+                Dim RfNum2 As Integer
+                'Creating TxT file
+                Dim intLineNumber1 As Integer
+                Dim strname = newEmail.Body
+                Dim stream_writer As IO.StreamWriter
+                stream_writer = New IO.StreamWriter("C:\Users\rpt7954\Documents\" & "WHATEVER3" & ".txt")
+                stream_writer.Write(strname)
+                stream_writer.Close()
+                newEmail.Delete()
+                intLineNumber1 = 8
+
+                Dim myLine1 = File.ReadAllLines("C:\Users\rpt7954\Documents\WHATEVER3.TXT").ElementAt(intLineNumber1).ToString
+                RfNum2 = myLine1.Substring(11, 3)
+
+
+
+                SQLconnection()
+                con2.ConnectionString = ConnectionStringRF
+
+
+
+                If con2.State = ConnectionState.Closed Or con2.State = ConnectionState.Broken Then con2.Open()
+                'Update RF Equipment Table
+                cmd3.Connection = con2
+                cmd3.CommandText = "UPDATE dbo.tblRFequipment SET Lock='Y' WHERE RFNum = '" & RfNum2 & "'"
+                cmd3.ExecuteNonQuery()
+                cmd3.Dispose()
+                con2.Close()
+
+
+            Next collectionItem
+        Next i
+
+
+        LockCheckin.Enabled = True
+
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs)
+        'Test button
+    End Sub
+End Class
